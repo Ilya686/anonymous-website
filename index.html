@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/_next/static/css/29c8a813bbfbcfcd.css" data-precedence="next" />
+    <link rel="preload" as="script" fetchpriority="low" href="/_next/static/chunks/webpack-c8441f2d519541e3.js" />
+    <script src="/_next/static/chunks/fd9d1056-87da80e0c187477b.js" async="">
+    </script>
+    <script src="/_next/static/chunks/117-baab43fc83142998.js" async="">
+    </script>
+    <script src="/_next/static/chunks/main-app-2dcde4753ea0d175.js" async="">
+    </script>
+    <script src="/_next/static/chunks/app/page-177fa1b5c11be2e2.js" async="">
+    </script>
+    <script src="/_next/static/chunks/app/layout-0fa6a3194726a0ad.js" async="">
+    </script>
+    <link rel="preload" href="/js/i18n.js" as="script" />
+    <link rel="preload" href="/script.js" as="script" />
+    <link rel="preload" href="/js/pwa.js" as="script" />
+    <link rel="preload" href="/js/admin.js" as="script" />
+    <title>
+      Anonymous Services - Цифровые услуги
+    </title>
+    <meta name="description" content="Профессиональные цифровые услуги с гарантией конфиденциальности и качества" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Anonymous" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" />
+    <link rel="icon" href="/icons/icon-512x512.png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" nomodule="">
+    </script>
+  </head>
+  <body>
+    <link rel="stylesheet" href="/style.css" />
+    <div class="video-bg-layer">
+      <video class="video-bg" autoplay="" loop="" muted="" playsinline="" aria-hidden="true">
+        <source src="/video/bg.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay" aria-hidden="true">
+      </div>
+    </div>
+    <header id="site-header">
+      <div class="nav-wrapper">
+        <div class="logo">
+          Anonymous
+        </div>
+        <nav class="nav-desktop">
+          <a href="#home" class="nav-link active" data-i18n="nav_home">          Главная
+</a>
+          <div class="services-nav ">
+            <button class="services-nav-toggle" id="servicesNavToggle">
+              <span data-i18n="nav_services">              Услуги
+</span>
+              <span class="nav-arrow">              ▾
+</span>
+            </button>
+            <div class="services-nav-dropdown" id="servicesNavDropdown">
+              <a href="#category-personal" class="services-nav-option" data-i18n="category_personal_documents">              Личные документы
+</a>
+              <a href="#category-financial" class="services-nav-option" data-i18n="category_financial_documents">              Финансовые документы
+</a>
+              <a href="#category-certificates" class="services-nav-option" data-i18n="category_certificates">              Справки и подтверждения
+</a>
+            </div>
+          </div>
+          <a href="https://t.me/Anonym_feedback" class="nav-link" target="_blank" rel="noopener noreferrer" data-i18n="nav_reviews">          Отзывы
+</a>
+          <a href="#faq" class="nav-link" data-i18n="nav_faq">          FAQ
+</a>
+        </nav>
+        <div class="lang-desktop">
+          <button class="lang-toggle" id="langToggle">
+            <span id="currentLang">            RU
+</span>
+            <span class="lang-arrow">            ▾
+</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button data-lang="ru" class="lang-option">
+              RU
+            </button>
+            <button data-lang="en" class="lang-option">
+              EN
+            </button>
+            <button data-lang="de" class="lang-option">
+              DE
+            </button>
+          </div>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+          <span class="burger-icon">          ☰
+</span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close">
+            ×
+          </button>
+          <nav class="mobile-nav">
+            <a href="#home" class="mobile-nav-link active" data-i18n="nav_home">            Главная
+</a>
+            <a href="#services" class="mobile-nav-link" data-i18n="nav_services">            Услуги
+</a>
+            <a href="https://t.me/Anonym_feedback" class="mobile-nav-link" target="_blank" rel="noopener noreferrer" data-i18n="nav_reviews">            Отзывы
+</a>
+            <a href="#faq" class="mobile-nav-link" data-i18n="nav_faq">            FAQ
+</a>
+          </nav>
+          <div class="mobile-lang">
+            <button class="mobile-lang-toggle" id="mobileLangToggle">
+              <span data-i18n="language_label">              Язык
+</span>
+              <span class="lang-arrow">              ▾
+</span>
+            </button>
+            <div class="mobile-lang-dropdown" id="mobileLangDropdown">
+              <button data-lang="ru" class="mobile-lang-option">
+                RU
+              </button>
+              <button data-lang="en" class="mobile-lang-option">
+                EN
+              </button>
+              <button data-lang="de" class="mobile-lang-option">
+                DE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="hero_title">
+          Private Digital Services
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Профессиональные цифровые услуги с гарантией конфиденциальности и качества
+        </p>
+        <div class="hero-trust-indicators">
+          <span class="trust-badge" data-i18n="trust_no_registration">          Без регистрации
+</span>
+          <span class="trust-badge" data-i18n="trust_direct_contact">          Прямое взаимодействие
+</span>
+          <span class="trust-badge" data-i18n="trust_private_data">          Приватная обработка данных
+</span>
+        </div>
+        <div class="reputation-block">
+          <p class="reputation-title">На рынке уже более двух лет</p>
+          <p class="reputation-text">Мы специализируемся на создании цифровых документов и сопутствующих услуг с упором на конфиденциальность, точность и ручную работу.</p>
+          <p class="reputation-text">За это время мы выстроили стабильный процесс взаимодействия с клиентами, исключающий автоматические генераторы и шаблонные решения.</p>
+          <p class="reputation-text">Каждый заказ обрабатывается индивидуально, с прямым контактом с исполнителем и строгим контролем качества на всех этапах.</p>
+        </div>
+        <div class="trust-block">
+          <div class="trust-item">
+            <span class="trust-item-icon">🔒</span>
+            <span class="trust-item-text">Конфиденциальность данных</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-icon">🧾</span>
+            <span class="trust-item-text">Ручная работа (без генераторов)</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-icon">⚡</span>
+            <span class="trust-item-text">Быстрые сроки выполнения</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-icon">💬</span>
+            <span class="trust-item-text">Прямой контакт с исполнителем</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="services-grid">
+          <h2 id="category-personal" class="services-category-title" data-i18n="category_personal_documents">
+            Личные документы
+          </h2>
+          <div class="service-card" data-service-key="service_id_card" data-price="15">
+            <div class="card-header">
+              <h3 data-i18n="service_id_card">
+                Цифровое удостоверение личности
+              </h3>
+              <p class="card-description" data-i18n="service_id_card_desc">
+                Официальный документ с вашими данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                15 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_id_card_details">
+                Фон для документа после оплаты заказа можно будет выбрать другой
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_drivers_license" data-price="15">
+            <div class="card-header">
+              <h3 data-i18n="service_drivers_license">
+                Цифровые водительские права
+              </h3>
+              <p class="card-description" data-i18n="service_drivers_license_desc">
+                Водительское удостоверение с персональными данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                15 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_drivers_license_details">
+                Фон для документа после оплаты заказа можно будет выбрать другой
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_passport" data-price="25">
+            <div class="card-header">
+              <h3 data-i18n="service_passport">
+                Цифровой паспорт
+              </h3>
+              <p class="card-description" data-i18n="service_passport_desc">
+                Паспорт с указанными вами данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                25 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_passport_details">
+                Фон для документа после оплаты заказа можно будет выбрать другой
+              </p>
+            </div>
+          </div>
+          <h2 id="category-financial" class="services-category-title" data-i18n="category_financial_documents">
+            Финансовые документы
+          </h2>
+          <div class="service-card" data-service-key="service_salary_1month" data-price="40">
+            <div class="card-header">
+              <h3 data-i18n="service_salary_1month">
+                Расчетная заработной платы (1 месяц)
+              </h3>
+              <p class="card-description" data-i18n="service_salary_1month_desc">
+                Официальная справка о заработной плате за месяц
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                40 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_salary_1month_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_invoice_mediamarkt" data-price="20">
+            <div class="card-header">
+              <h3 data-i18n="service_invoice_mediamarkt">
+                Счет-фактура MediaMarkt
+              </h3>
+              <p class="card-description" data-i18n="service_invoice_mediamarkt_desc">
+                Официальный счет-фактура от MediaMarkt
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                20 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_invoice_mediamarkt_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_invoice_saturn" data-price="20">
+            <div class="card-header">
+              <h3 data-i18n="service_invoice_saturn">
+                Счет-фактура Saturn
+              </h3>
+              <p class="card-description" data-i18n="service_invoice_saturn_desc">
+                Официальный счет-фактура от Saturn
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                20 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_invoice_saturn_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_invoice_apple" data-price="20">
+            <div class="card-header">
+              <h3 data-i18n="service_invoice_apple">
+                Счет-фактура Apple
+              </h3>
+              <p class="card-description" data-i18n="service_invoice_apple_desc">
+                Официальный счет-фактура от Apple
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                20 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_invoice_apple_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <h2 id="category-certificates" class="services-category-title" data-i18n="category_certificates">
+            Справки и подтверждения
+          </h2>
+          <div class="service-card" data-service-key="service_criminal_record_extended" data-price="25">
+            <div class="card-header">
+              <h3 data-i18n="service_criminal_record_extended">
+                Расширенная справка о не судимости
+              </h3>
+              <p class="card-description" data-i18n="service_criminal_record_extended_desc">
+                Подробная справка об отсутствии судимости
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                25 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_criminal_record_extended_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_criminal_record" data-price="25">
+            <div class="card-header">
+              <h3 data-i18n="service_criminal_record">
+                Справка о не судимости
+              </h3>
+              <p class="card-description" data-i18n="service_criminal_record_desc">
+                Официальная справка об отсутствии судимости
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                25 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_criminal_record_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="close">        ×
+</span>
+        <h2 id="modalServiceName">
+        </h2>
+        <div class="modal-price" id="modalPrice">
+        </div>
+        <div class="modal-trust-info">
+          <p class="trust-text" data-i18n="modal_trust_text">
+            Без автоматических генераторов. Каждый документ создаётся вручную в Photoshop и Adobe Acrobat.
+          </p>
+        </div>
+        <div class="modal-description">
+          <h3 data-i18n="modal_steps_title">
+            Следующие шаги:
+          </h3>
+          <ul>
+            <li data-i18n="modal_step1">
+              После оплаты отправьте TXID или скриншот платежа исполнителю
+            </li>
+            <li data-i18n="modal_step2">
+              Укажите название услуги, которую вы выбрали
+            </li>
+            <li data-i18n="modal_step3">
+              Предоставьте желаемые данные для документа
+            </li>
+          </ul>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-pay" data-i18n="btn_pay">
+            Перейти к оплате
+          </button>
+          <button class="btn btn-contact" data-i18n="btn_contact">
+            Связаться с исполнителем
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="paymentSuccessModal" class="modal" style="display:none;opacity:0">
+      <div class="modal-content payment-success-modal">
+        <span class="close">        ×
+</span>
+        <div class="payment-success-icon">
+          ✓
+        </div>
+        <h2>
+          Спасибо за заказ
+        </h2>
+        <p class="payment-success-text">
+          Для дальнейшей работы, свяжитесь с продавцом
+        </p>
+        <div class="modal-actions">
+          <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="btn btn-contact" style="text-decoration:none;display:inline-block">          Связаться с продавцом
+</a>
+          <button class="btn btn-secondary">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="faq_title">
+          Часто задаваемые вопросы
+        </h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question1">
+                Как оформить заказ?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer1">
+                Нажмите кнопку &#34;Оформить запрос&#34; на карточке интересующей вас услуги, затем следуйте инструкциям в модальном окне.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question2">
+                Как происходит оплата?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer2">
+                Оплата производится через Nowpayments. После оплаты необходимо отправить TXID или скриншот платежа исполнителю.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question3">
+                Сколько времени занимает изготовление документа?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer3">
+                В среднем каждый документ занимает от 5–30 минут, в зависимости от загрузки заказов у продавца. Точное время вашего заказа можно уточнить у продавца.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question4">
+                Какие данные нужно предоставить?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer4">
+                После оплаты отправьте исполнителю ваши желаемые данные для документа через Telegram или Threema.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-info">
+          <p data-i18n="footer_not_found">
+            Если вы не нашли нужный вам документ, пожалуйста, свяжитесь с нами.
+          </p>
+          <p class="footer-trust" data-i18n="footer_trust">
+            Все документы создаются вручную в Photoshop и Adobe Acrobat. Без автоматических генераторов, только качественная работа.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_telegram">          Телеграмм
+</a>
+          <a href="https://threema.id/HX5NJW35" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_threema">          Threema
+</a>
+          <a href="https://t.me/Anonymous_GFX_SHOP" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_channel">          Телеграмм канал
+</a>
+          <a href="https://t.me/Anonym_feedback" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_reviews">          Отзывы
+</a>
+        </div>
+      </div>
+    </footer>
+    <div id="adminLoginModal" class="admin-login-modal" style="display:none">
+      <div class="admin-login-content">
+        <button class="admin-close-btn" id="adminLoginClose">
+          ×
+        </button>
+        <h2 class="admin-login-title">
+          Админ-панель
+        </h2>
+        <p class="admin-login-subtitle">
+          Введите пароль для доступа
+        </p>
+        <div class="admin-login-form">
+          <input type="password" id="adminPasswordInput" class="admin-password-input" placeholder="Пароль" autocomplete="current-password" />
+          <div id="adminLoginError" class="admin-error-message" style="display:none">
+          </div>
+          <button id="adminLoginButton" class="admin-login-button">
+            Войти
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="adminPanel" class="admin-panel" style="display:none">
+      <div class="admin-panel-header">
+        <h2 class="admin-panel-title">
+          Админ-панель
+        </h2>
+        <div class="admin-panel-actions">
+          <button id="adminRefreshButton" class="admin-action-button" title="Обновить статистику">
+            ↻
+          </button>
+          <button id="adminLogoutButton" class="admin-action-button" title="Выйти">
+            Выход
+          </button>
+        </div>
+      </div>
+      <div class="admin-panel-content">
+        <div id="adminStatsLoading" class="admin-loading" style="display:none">
+          <div class="admin-spinner">
+          </div>
+          <p>
+            Загрузка статистики...
+          </p>
+        </div>
+        <div id="adminStatsContent">
+        </div>
+      </div>
+    </div>
+    <script src="/_next/static/chunks/webpack-c8441f2d519541e3.js" async="">
+    </script>
+    <script>
+      (self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])
+    </script>
+    <script>
+      self.__next_f.push([1,"1:HL[\"/_next/static/css/29c8a813bbfbcfcd.css\",\"style\"]\n"])
+    </script>
+    <script>
+      self.__next_f.push([1,"2:I[2846,[],\"\"]\n4:I[9107,[],\"ClientPageRoot\"]\n5:I[7340,[\"931\",\"static/chunks/app/page-177fa1b5c11be2e2.js\"],\"default\",1]\n6:I[5241,[\"185\",\"static/chunks/app/layout-0fa6a3194726a0ad.js\"],\"default\"]\n7:I[4707,[],\"\"]\n8:I[6423,[],\"\"]\n9:I[8003,[\"185\",\"static/chunks/app/layout-0fa6a3194726a0ad.js\"],\"\"]\nb:I[1060,[],\"\"]\nc:[]\n"])
+    </script>
+    <script>
+      self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"c4U7Qkat9sNL6oXd1GArB\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"\"],\"initialTree\":[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[\"$\",\"$L4\",null,{\"props\":{\"params\":{},\"searchParams\":{}},\"Component\":\"$5\"}],null],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/29c8a813bbfbcfcd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"ru\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"link\",null,{\"rel\":\"stylesheet\",\"href\":\"/style.css\"}],[\"$\",\"$L6\",null,{}],[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[]}],[\"$\",\"$L9\",null,{\"src\":\"/js/i18n.js\",\"strategy\":\"afterInteractive\"}],[\"$\",\"$L9\",null,{\"src\":\"/script.js\",\"strategy\":\"afterInteractive\"}],[\"$\",\"$L9\",null,{\"src\":\"/js/pwa.js\",\"strategy\":\"afterInteractive\"}],[\"$\",\"$L9\",null,{\"src\":\"/js/admin.js\",\"strategy\":\"afterInteractive\"}]]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$La\"],\"globalErrorComponent\":\"$b\",\"missingSlots\":\"$Wc\"}]\n"])
+    </script>
+    <script>
+      self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Anonymous Services - Цифровые услуги\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Профессиональные цифровые услуги с гарантией конфиденциальности и качества\"}],[\"$\",\"link\",\"4\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"use-credentials\"}],[\"$\",\"meta\",\"5\",{\"name\":\"apple-mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",\"6\",{\"name\":\"apple-mobile-web-app-title\",\"content\":\"Anonymous\"}],[\"$\",\"meta\",\"7\",{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"black-translucent\"}],[\"$\",\"link\",\"8\",{\"rel\":\"icon\",\"href\":\"/icons/favicon.ico\",\"sizes\":\"32x32\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/icons/icon-192x192.png\",\"sizes\":\"192x192\"}],[\"$\",\"link\",\"10\",{\"rel\":\"icon\",\"href\":\"/icons/icon-512x512.png\",\"sizes\":\"512x512\"}],[\"$\",\"link\",\"11\",{\"rel\":\"apple-touch-icon\",\"href\":\"/icons/apple-touch-icon.png\"}]]\n3:null\n"])
+    </script>
+    <script src="/js/i18n.js"></script>
+    <script src="/script.js"></script>
+    <script src="/js/pwa.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
+
