@@ -25,6 +25,17 @@
   will-change: transform;
 }
 
+/* Альтернативный вариант для совместимости */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
 .video-overlay {
   position: fixed;
   inset: 0;
@@ -1342,201 +1353,6 @@ body.modal-open {
   background: var(--bg-glass);
 }
 
-/* ============================================
-   ADMIN PANEL
-   ============================================ */
-.admin-login-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 4000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.admin-login-content {
-  background: var(--bg-card);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
-  padding: 40px;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: var(--shadow-xl);
-}
-
-.admin-close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  font-size: 32px;
-  cursor: pointer;
-  padding: 0;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-  line-height: 1;
-}
-
-.admin-close-btn:hover {
-  color: var(--text-primary);
-  background: var(--bg-glass);
-}
-
-.admin-login-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.admin-login-subtitle {
-  font-size: 15px;
-  color: var(--text-secondary);
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.admin-login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.admin-password-input {
-  padding: 14px 16px;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  font-size: 15px;
-  font-family: var(--font-family);
-  transition: all var(--transition-fast);
-}
-
-.admin-password-input:focus {
-  outline: none;
-  border-color: var(--border-color-hover);
-  background: var(--bg-glass-strong);
-}
-
-.admin-login-button {
-  padding: 14px 24px;
-  background: var(--accent-red);
-  color: white;
-  border: none;
-  border-radius: var(--radius-md);
-  font-size: 15px;
-  font-weight: 500;
-  font-family: var(--font-family);
-  cursor: pointer;
-  transition: all var(--transition-base);
-}
-
-.admin-login-button:hover {
-  background: var(--accent-red-hover);
-  transform: translateY(-2px);
-}
-
-.admin-error-message {
-  color: var(--accent-red);
-  font-size: 14px;
-  text-align: center;
-  padding: 8px;
-}
-
-.admin-panel {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: var(--bg-card);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
-  max-width: 400px;
-  width: 90%;
-  z-index: 3500;
-}
-
-.admin-panel-header {
-  padding: 20px;
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.admin-panel-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.admin-panel-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.admin-action-button {
-  padding: 8px 16px;
-  background: transparent;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-family: var(--font-family);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.admin-action-button:hover {
-  color: var(--text-primary);
-  border-color: var(--border-color-hover);
-  background: var(--bg-glass);
-}
-
-.admin-panel-content {
-  padding: 20px;
-}
-
-.admin-loading {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.admin-spinner {
-  width: 32px;
-  height: 32px;
-  border: 3px solid var(--border-color);
-  border-top-color: var(--accent-red);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 16px;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* ============================================
    RESPONSIVE DESIGN
@@ -1666,12 +1482,6 @@ body.modal-open {
     padding: 32px 24px;
   }
 
-  .admin-panel {
-    bottom: 16px;
-    right: 16px;
-    left: 16px;
-    max-width: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1791,3 +1601,4 @@ body.modal-open {
     margin-bottom: 12px;
   }
 }
+

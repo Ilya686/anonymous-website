@@ -1,0 +1,15 @@
+{
+  "name": "anonymous-services",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build needed for static site'",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@vercel/kv": "^0.2.1",
+    "express": "^4.22.1",
+    "next": "^16.1.1",
+    "redis": "^5.10.0"
+  }
+}

@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Кнопка "Закрыть" в модалке успешной оплаты
+  const closeSuccessButton = paymentSuccessModal?.querySelector('.btn-secondary');
+  if (closeSuccessButton) {
+    closeSuccessButton.addEventListener('click', function() {
+      closeModal(paymentSuccessModal);
+    });
+  }
+  
   // Закрытие по клику на overlay
   [orderModal, paymentSuccessModal].forEach(modal => {
     if (modal) {
@@ -68,6 +76,150 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modalServiceName) modalServiceName.textContent = serviceName;
         if (modalPrice) modalPrice.textContent = price;
         openModal(orderModal);
+      }
+    });
+  });
+  
+  // Кнопки "Перейти к оплате" - создаем платеж через NowPayments
+  const payButtons = document.querySelectorAll('.btn-pay');
+  payButtons.forEach(btn => {
+    btn.addEventListener('click', async function(e) {
+      e.preventDefault();
+      const modal = this.closest('.modal');
+      if (modal && modal.id === 'orderModal') {
+        const serviceName = document.getElementById('modalServiceName')?.textContent?.trim() || '';
+        const priceText = document.getElementById('modalPrice')?.textContent?.trim() || '';
+        
+        // Извлекаем число из цены (убираем символы валюты и пробелы)
+        const priceTextClean = priceText.replace(/[€\s]/g, '').trim();
+        const priceMatch = priceTextClean.match(/[\d,]+\.?[\d]*|[\d]+/);
+        const priceValue = priceMatch ? parseFloat(priceMatch[0].replace(',', '.')) : 0;
+        
+        if (serviceName && priceValue > 0) {
+          // Отключаем кнопку, чтобы предотвратить двойной клик
+          const originalText = this.textContent;
+          this.disabled = true;
+          this.textContent = 'Загрузка...';
+          
+          try {
+            // Отправляем запрос на создание платежа
+            console.log('[Payment] Creating payment request:', {
+              price_amount: priceValue,
+              price_currency: 'eur',
+              pay_currency: 'btc',
+              order_description: serviceName
+            });
+            
+            const response = await fetch('/api/create-payment', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                price_amount: priceValue,
+                price_currency: 'eur',
+                pay_currency: 'btc',
+                order_description: serviceName
+              })
+            });
+
+            // Читаем тело ответа один раз
+            const responseText = await response.text();
+            
+            if (!response.ok) {
+              let errorMessage = 'Ошибка при создании платежа';
+              let errorDetails = '';
+              
+              // Пытаемся распарсить JSON ошибку
+              try {
+                const errorData = JSON.parse(responseText);
+                errorMessage = errorData.error || errorMessage;
+                errorDetails = errorData.details || errorData.message || '';
+                
+                console.error('[Payment] API error response:', errorData);
+              } catch (parseError) {
+                // Если не JSON, используем текст как есть
+                errorMessage = responseText || response.statusText || errorMessage;
+                errorDetails = responseText;
+                console.error('[Payment] Failed to parse error response as JSON:', parseError);
+                console.error('[Payment] Response text:', responseText);
+              }
+              
+              // Формируем сообщение об ошибке
+              let alertMessage = errorMessage;
+              if (errorDetails && errorDetails !== errorMessage) {
+                // Добавляем детали, если они есть и отличаются от основного сообщения
+                const truncatedDetails = errorDetails.length > 200 ? errorDetails.substring(0, 200) + '...' : errorDetails;
+                alertMessage += '\n\nДетали: ' + truncatedDetails;
+              }
+              
+              throw new Error(alertMessage);
+            }
+
+            // Парсим успешный ответ
+            let data;
+            try {
+              data = JSON.parse(responseText);
+            } catch (parseError) {
+              console.error('[Payment] Failed to parse success response as JSON:', parseError);
+              console.error('[Payment] Response text:', responseText);
+              throw new Error('Неверный формат ответа от сервера');
+            }
+            console.log('[Payment] Payment created successfully:', data);
+            
+            if (data.invoice_url) {
+              // Закрываем модалку перед переходом на страницу оплаты
+              if (modal) {
+                closeModal(modal);
+              }
+              
+              // Перенаправляем на страницу оплаты
+              window.location.href = data.invoice_url;
+            } else {
+              throw new Error('Invoice URL not received from server');
+            }
+          } catch (error) {
+            console.error('[Payment] Ошибка при создании платежа:', error);
+            
+            // Показываем детальное сообщение об ошибке
+            const errorMessage = error.message || 'Неизвестная ошибка';
+            alert(errorMessage);
+            
+            // Восстанавливаем кнопку
+            this.disabled = false;
+            this.textContent = originalText;
+          }
+        } else {
+          console.warn('[Payment] Не удалось извлечь данные платежа:', { serviceName, priceValue });
+          alert('Ошибка: не удалось определить услугу или цену.');
+        }
+      }
+    });
+  });
+  
+  // Кнопки "Предосмотр"
+  const previewButtons = document.querySelectorAll('.btn-preview');
+  previewButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Кнопка предосмотра (можно добавить функционал позже)
+    });
+  });
+  
+  // Кнопки "Подробнее"
+  const moreButtons = document.querySelectorAll('.btn-more');
+  moreButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.service-card');
+      if (card) {
+        const detailsDiv = card.querySelector('.card-details');
+        if (detailsDiv) {
+          const isHidden = detailsDiv.style.display === 'none' || !detailsDiv.style.display;
+          if (isHidden) {
+            detailsDiv.style.display = 'block';
+          } else {
+            detailsDiv.style.display = 'none';
+          }
+        }
       }
     });
   });
@@ -162,4 +314,5 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, { passive: true });
   }
+  
 });

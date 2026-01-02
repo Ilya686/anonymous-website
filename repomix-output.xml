@@ -1,0 +1,2879 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+_next/static/css/29c8a813bbfbcfcd.css
+.gitignore
+index.html
+js/admin.js
+js/i18n.js
+js/pwa.js
+manifest.json
+script.js
+style.css
+vercel.json
+video/bg.mp4
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="_next/static/css/29c8a813bbfbcfcd.css">
+/* Next.js CSS файл - содержимое будет добавлено при необходимости */
+</file>
+
+<file path="index.html">
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/_next/static/css/29c8a813bbfbcfcd.css" data-precedence="next" />
+    <link rel="preload" as="script" fetchpriority="low" href="/_next/static/chunks/webpack-c8441f2d519541e3.js" />
+    <script src="/_next/static/chunks/fd9d1056-87da80e0c187477b.js" async="">
+    </script>
+    <script src="/_next/static/chunks/117-baab43fc83142998.js" async="">
+    </script>
+    <script src="/_next/static/chunks/main-app-2dcde4753ea0d175.js" async="">
+    </script>
+    <script src="/_next/static/chunks/app/page-177fa1b5c11be2e2.js" async="">
+    </script>
+    <script src="/_next/static/chunks/app/layout-0fa6a3194726a0ad.js" async="">
+    </script>
+    <link rel="preload" href="/js/i18n.js" as="script" />
+    <link rel="preload" href="/script.js" as="script" />
+    <link rel="preload" href="/js/pwa.js" as="script" />
+    <link rel="preload" href="/js/admin.js" as="script" />
+    <title>
+      Anonymous Services - Цифровые услуги
+    </title>
+    <meta name="description" content="Профессиональные цифровые услуги с гарантией конфиденциальности и качества" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Anonymous" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" />
+    <link rel="icon" href="/icons/icon-512x512.png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" nomodule="">
+    </script>
+  </head>
+  <body>
+    <link rel="stylesheet" href="/style.css" />
+    <div class="video-bg-layer">
+      <video class="video-bg" autoplay="" loop="" muted="" playsinline="" aria-hidden="true">
+        <source src="/video/bg.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay" aria-hidden="true">
+      </div>
+    </div>
+    <header id="site-header">
+      <div class="nav-wrapper">
+        <div class="logo">
+          Anonymous
+        </div>
+        <nav class="nav-desktop">
+          <a href="#home" class="nav-link active" data-i18n="nav_home">          Главная
+</a>
+          <div class="services-nav ">
+            <button class="services-nav-toggle" id="servicesNavToggle">
+              <span data-i18n="nav_services">              Услуги
+</span>
+              <span class="nav-arrow">              ▾
+</span>
+            </button>
+            <div class="services-nav-dropdown" id="servicesNavDropdown">
+              <a href="#category-personal" class="services-nav-option" data-i18n="category_personal_documents">              Личные документы
+</a>
+              <a href="#category-financial" class="services-nav-option" data-i18n="category_financial_documents">              Финансовые документы
+</a>
+              <a href="#category-certificates" class="services-nav-option" data-i18n="category_certificates">              Справки и подтверждения
+</a>
+            </div>
+          </div>
+          <a href="https://t.me/Anonym_feedback" class="nav-link" target="_blank" rel="noopener noreferrer" data-i18n="nav_reviews">          Отзывы
+</a>
+          <a href="#faq" class="nav-link" data-i18n="nav_faq">          FAQ
+</a>
+        </nav>
+        <div class="lang-desktop">
+          <button class="lang-toggle" id="langToggle">
+            <span id="currentLang">            RU
+</span>
+            <span class="lang-arrow">            ▾
+</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button data-lang="ru" class="lang-option">
+              RU
+            </button>
+            <button data-lang="en" class="lang-option">
+              EN
+            </button>
+            <button data-lang="de" class="lang-option">
+              DE
+            </button>
+          </div>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+          <span class="burger-icon">          ☰
+</span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close">
+            ×
+          </button>
+          <nav class="mobile-nav">
+            <a href="#home" class="mobile-nav-link active" data-i18n="nav_home">            Главная
+</a>
+            <a href="#services" class="mobile-nav-link" data-i18n="nav_services">            Услуги
+</a>
+            <a href="https://t.me/Anonym_feedback" class="mobile-nav-link" target="_blank" rel="noopener noreferrer" data-i18n="nav_reviews">            Отзывы
+</a>
+            <a href="#faq" class="mobile-nav-link" data-i18n="nav_faq">            FAQ
+</a>
+          </nav>
+          <div class="mobile-lang">
+            <button class="mobile-lang-toggle" id="mobileLangToggle">
+              <span data-i18n="language_label">              Язык
+</span>
+              <span class="lang-arrow">              ▾
+</span>
+            </button>
+            <div class="mobile-lang-dropdown" id="mobileLangDropdown">
+              <button data-lang="ru" class="mobile-lang-option">
+                RU
+              </button>
+              <button data-lang="en" class="mobile-lang-option">
+                EN
+              </button>
+              <button data-lang="de" class="mobile-lang-option">
+                DE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="hero_title">
+          Private Digital Services
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Профессиональные цифровые услуги с гарантией конфиденциальности и качества
+        </p>
+        <div class="hero-trust-indicators">
+          <span class="trust-badge" data-i18n="trust_no_registration">          Без регистрации
+</span>
+          <span class="trust-badge" data-i18n="trust_direct_contact">          Прямое взаимодействие
+</span>
+          <span class="trust-badge" data-i18n="trust_private_data">          Приватная обработка данных
+</span>
+        </div>
+        <div class="reputation-block">
+          <p class="reputation-title">На рынке уже более двух лет</p>
+          <p class="reputation-text">Мы специализируемся на создании цифровых документов и сопутствующих услуг с упором на конфиденциальность, точность и ручную работу.</p>
+          <p class="reputation-text">За это время мы выстроили стабильный процесс взаимодействия с клиентами, исключающий автоматические генераторы и шаблонные решения.</p>
+          <p class="reputation-text">Каждый заказ обрабатывается индивидуально, с прямым контактом с исполнителем и строгим контролем качества на всех этапах.</p>
+        </div>
+        <div class="trust-block">
+          <div class="trust-item">
+            <span class="trust-item-icon">🔒</span>
+            <span class="trust-item-text">Конфиденциальность данных</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-icon">🧾</span>
+            <span class="trust-item-text">Ручная работа (без генераторов)</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-icon">⚡</span>
+            <span class="trust-item-text">Быстрые сроки выполнения</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item-icon">💬</span>
+            <span class="trust-item-text">Прямой контакт с исполнителем</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="services-grid">
+          <h2 id="category-personal" class="services-category-title" data-i18n="category_personal_documents">
+            Личные документы
+          </h2>
+          <div class="service-card" data-service-key="service_id_card" data-price="15">
+            <div class="card-header">
+              <h3 data-i18n="service_id_card">
+                Цифровое удостоверение личности
+              </h3>
+              <p class="card-description" data-i18n="service_id_card_desc">
+                Официальный документ с вашими данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                15 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_id_card_details">
+                Фон для документа после оплаты заказа можно будет выбрать другой
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_drivers_license" data-price="15">
+            <div class="card-header">
+              <h3 data-i18n="service_drivers_license">
+                Цифровые водительские права
+              </h3>
+              <p class="card-description" data-i18n="service_drivers_license_desc">
+                Водительское удостоверение с персональными данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                15 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_drivers_license_details">
+                Фон для документа после оплаты заказа можно будет выбрать другой
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_passport" data-price="25">
+            <div class="card-header">
+              <h3 data-i18n="service_passport">
+                Цифровой паспорт
+              </h3>
+              <p class="card-description" data-i18n="service_passport_desc">
+                Паспорт с указанными вами данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                25 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_passport_details">
+                Фон для документа после оплаты заказа можно будет выбрать другой
+              </p>
+            </div>
+          </div>
+          <h2 id="category-financial" class="services-category-title" data-i18n="category_financial_documents">
+            Финансовые документы
+          </h2>
+          <div class="service-card" data-service-key="service_salary_1month" data-price="40">
+            <div class="card-header">
+              <h3 data-i18n="service_salary_1month">
+                Расчетная заработной платы (1 месяц)
+              </h3>
+              <p class="card-description" data-i18n="service_salary_1month_desc">
+                Официальная справка о заработной плате за месяц
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                40 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_salary_1month_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_invoice_mediamarkt" data-price="20">
+            <div class="card-header">
+              <h3 data-i18n="service_invoice_mediamarkt">
+                Счет-фактура MediaMarkt
+              </h3>
+              <p class="card-description" data-i18n="service_invoice_mediamarkt_desc">
+                Официальный счет-фактура от MediaMarkt
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                20 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_invoice_mediamarkt_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_invoice_saturn" data-price="20">
+            <div class="card-header">
+              <h3 data-i18n="service_invoice_saturn">
+                Счет-фактура Saturn
+              </h3>
+              <p class="card-description" data-i18n="service_invoice_saturn_desc">
+                Официальный счет-фактура от Saturn
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                20 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_invoice_saturn_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_invoice_apple" data-price="20">
+            <div class="card-header">
+              <h3 data-i18n="service_invoice_apple">
+                Счет-фактура Apple
+              </h3>
+              <p class="card-description" data-i18n="service_invoice_apple_desc">
+                Официальный счет-фактура от Apple
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                20 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_invoice_apple_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <h2 id="category-certificates" class="services-category-title" data-i18n="category_certificates">
+            Справки и подтверждения
+          </h2>
+          <div class="service-card" data-service-key="service_criminal_record_extended" data-price="25">
+            <div class="card-header">
+              <h3 data-i18n="service_criminal_record_extended">
+                Расширенная справка о не судимости
+              </h3>
+              <p class="card-description" data-i18n="service_criminal_record_extended_desc">
+                Подробная справка об отсутствии судимости
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                25 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_criminal_record_extended_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_criminal_record" data-price="25">
+            <div class="card-header">
+              <h3 data-i18n="service_criminal_record">
+                Справка о не судимости
+              </h3>
+              <p class="card-description" data-i18n="service_criminal_record_desc">
+                Официальная справка об отсутствии судимости
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                25 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+            <div class="card-details" style="display:none">
+              <p data-i18n="service_criminal_record_details">
+                Документ будет предоставлен в PDF формате с вашими данными
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="close">        ×
+</span>
+        <h2 id="modalServiceName">
+        </h2>
+        <div class="modal-price" id="modalPrice">
+        </div>
+        <div class="modal-trust-info">
+          <p class="trust-text" data-i18n="modal_trust_text">
+            Без автоматических генераторов. Каждый документ создаётся вручную в Photoshop и Adobe Acrobat.
+          </p>
+        </div>
+        <div class="modal-description">
+          <h3 data-i18n="modal_steps_title">
+            Следующие шаги:
+          </h3>
+          <ul>
+            <li data-i18n="modal_step1">
+              После оплаты отправьте TXID или скриншот платежа исполнителю
+            </li>
+            <li data-i18n="modal_step2">
+              Укажите название услуги, которую вы выбрали
+            </li>
+            <li data-i18n="modal_step3">
+              Предоставьте желаемые данные для документа
+            </li>
+          </ul>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-pay" data-i18n="btn_pay">
+            Перейти к оплате
+          </button>
+          <button class="btn btn-contact" data-i18n="btn_contact">
+            Связаться с исполнителем
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="paymentSuccessModal" class="modal" style="display:none;opacity:0">
+      <div class="modal-content payment-success-modal">
+        <span class="close">        ×
+</span>
+        <div class="payment-success-icon">
+          ✓
+        </div>
+        <h2>
+          Спасибо за заказ
+        </h2>
+        <p class="payment-success-text">
+          Для дальнейшей работы, свяжитесь с продавцом
+        </p>
+        <div class="modal-actions">
+          <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="btn btn-contact" style="text-decoration:none;display:inline-block">          Связаться с продавцом
+</a>
+          <button class="btn btn-secondary">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="faq_title">
+          Часто задаваемые вопросы
+        </h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question1">
+                Как оформить заказ?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer1">
+                Нажмите кнопку &#34;Оформить запрос&#34; на карточке интересующей вас услуги, затем следуйте инструкциям в модальном окне.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question2">
+                Как происходит оплата?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer2">
+                Оплата производится через Nowpayments. После оплаты необходимо отправить TXID или скриншот платежа исполнителю.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question3">
+                Сколько времени занимает изготовление документа?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer3">
+                В среднем каждый документ занимает от 5–30 минут, в зависимости от загрузки заказов у продавца. Точное время вашего заказа можно уточнить у продавца.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3 data-i18n="faq_question4">
+                Какие данные нужно предоставить?
+              </h3>
+              <span class="faq-icon">              +
+</span>
+            </div>
+            <div class="faq-answer">
+              <p data-i18n="faq_answer4">
+                После оплаты отправьте исполнителю ваши желаемые данные для документа через Telegram или Threema.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-info">
+          <p data-i18n="footer_not_found">
+            Если вы не нашли нужный вам документ, пожалуйста, свяжитесь с нами.
+          </p>
+          <p class="footer-trust" data-i18n="footer_trust">
+            Все документы создаются вручную в Photoshop и Adobe Acrobat. Без автоматических генераторов, только качественная работа.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_telegram">          Телеграмм
+</a>
+          <a href="https://threema.id/HX5NJW35" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_threema">          Threema
+</a>
+          <a href="https://t.me/Anonymous_GFX_SHOP" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_channel">          Телеграмм канал
+</a>
+          <a href="https://t.me/Anonym_feedback" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer_reviews">          Отзывы
+</a>
+        </div>
+      </div>
+    </footer>
+    <div id="adminLoginModal" class="admin-login-modal" style="display:none">
+      <div class="admin-login-content">
+        <button class="admin-close-btn" id="adminLoginClose">
+          ×
+        </button>
+        <h2 class="admin-login-title">
+          Админ-панель
+        </h2>
+        <p class="admin-login-subtitle">
+          Введите пароль для доступа
+        </p>
+        <div class="admin-login-form">
+          <input type="password" id="adminPasswordInput" class="admin-password-input" placeholder="Пароль" autocomplete="current-password" />
+          <div id="adminLoginError" class="admin-error-message" style="display:none">
+          </div>
+          <button id="adminLoginButton" class="admin-login-button">
+            Войти
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="adminPanel" class="admin-panel" style="display:none">
+      <div class="admin-panel-header">
+        <h2 class="admin-panel-title">
+          Админ-панель
+        </h2>
+        <div class="admin-panel-actions">
+          <button id="adminRefreshButton" class="admin-action-button" title="Обновить статистику">
+            ↻
+          </button>
+          <button id="adminLogoutButton" class="admin-action-button" title="Выйти">
+            Выход
+          </button>
+        </div>
+      </div>
+      <div class="admin-panel-content">
+        <div id="adminStatsLoading" class="admin-loading" style="display:none">
+          <div class="admin-spinner">
+          </div>
+          <p>
+            Загрузка статистики...
+          </p>
+        </div>
+        <div id="adminStatsContent">
+        </div>
+      </div>
+    </div>
+    <script src="/_next/static/chunks/webpack-c8441f2d519541e3.js" async="">
+    </script>
+    <script>
+      (self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])
+    </script>
+    <script>
+      self.__next_f.push([1,"1:HL[\"/_next/static/css/29c8a813bbfbcfcd.css\",\"style\"]\n"])
+    </script>
+    <script>
+      self.__next_f.push([1,"2:I[2846,[],\"\"]\n4:I[9107,[],\"ClientPageRoot\"]\n5:I[7340,[\"931\",\"static/chunks/app/page-177fa1b5c11be2e2.js\"],\"default\",1]\n6:I[5241,[\"185\",\"static/chunks/app/layout-0fa6a3194726a0ad.js\"],\"default\"]\n7:I[4707,[],\"\"]\n8:I[6423,[],\"\"]\n9:I[8003,[\"185\",\"static/chunks/app/layout-0fa6a3194726a0ad.js\"],\"\"]\nb:I[1060,[],\"\"]\nc:[]\n"])
+    </script>
+    <script>
+      self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"c4U7Qkat9sNL6oXd1GArB\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"\"],\"initialTree\":[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[\"$\",\"$L4\",null,{\"props\":{\"params\":{},\"searchParams\":{}},\"Component\":\"$5\"}],null],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/29c8a813bbfbcfcd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"ru\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"link\",null,{\"rel\":\"stylesheet\",\"href\":\"/style.css\"}],[\"$\",\"$L6\",null,{}],[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[]}],[\"$\",\"$L9\",null,{\"src\":\"/js/i18n.js\",\"strategy\":\"afterInteractive\"}],[\"$\",\"$L9\",null,{\"src\":\"/script.js\",\"strategy\":\"afterInteractive\"}],[\"$\",\"$L9\",null,{\"src\":\"/js/pwa.js\",\"strategy\":\"afterInteractive\"}],[\"$\",\"$L9\",null,{\"src\":\"/js/admin.js\",\"strategy\":\"afterInteractive\"}]]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$La\"],\"globalErrorComponent\":\"$b\",\"missingSlots\":\"$Wc\"}]\n"])
+    </script>
+    <script>
+      self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Anonymous Services - Цифровые услуги\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Профессиональные цифровые услуги с гарантией конфиденциальности и качества\"}],[\"$\",\"link\",\"4\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"use-credentials\"}],[\"$\",\"meta\",\"5\",{\"name\":\"apple-mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",\"6\",{\"name\":\"apple-mobile-web-app-title\",\"content\":\"Anonymous\"}],[\"$\",\"meta\",\"7\",{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"black-translucent\"}],[\"$\",\"link\",\"8\",{\"rel\":\"icon\",\"href\":\"/icons/favicon.ico\",\"sizes\":\"32x32\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/icons/icon-192x192.png\",\"sizes\":\"192x192\"}],[\"$\",\"link\",\"10\",{\"rel\":\"icon\",\"href\":\"/icons/icon-512x512.png\",\"sizes\":\"512x512\"}],[\"$\",\"link\",\"11\",{\"rel\":\"apple-touch-icon\",\"href\":\"/icons/apple-touch-icon.png\"}]]\n3:null\n"])
+    </script>
+    <script src="/js/i18n.js"></script>
+    <script src="/script.js"></script>
+    <script src="/js/pwa.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
+</file>
+
+<file path="js/admin.js">
+// Админ панель скрипт
+</file>
+
+<file path="js/i18n.js">
+// Интернационализация (i18n) скрипт
+</file>
+
+<file path="js/pwa.js">
+// PWA (Progressive Web App) скрипт
+</file>
+
+<file path="manifest.json">
+{
+  "name": "Anonymous Services",
+  "short_name": "Anonymous",
+  "description": "Профессиональные цифровые услуги с гарантией конфиденциальности и качества",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+</file>
+
+<file path="script.js">
+// Минимальный JS для работы модалок, FAQ и мобильного меню (необходимо для стилей)
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Модалки
+  const orderModal = document.getElementById('orderModal');
+  const paymentSuccessModal = document.getElementById('paymentSuccessModal');
+  const modalCloses = document.querySelectorAll('.modal .close');
+  
+  // Блокировка скролла при открытой модалке
+  function toggleBodyScroll(lock) {
+    if (lock) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }
+  
+  function openModal(modal) {
+    modal.classList.add('active');
+    toggleBodyScroll(true);
+  }
+  
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    toggleBodyScroll(false);
+  }
+  
+  // Закрытие модалок
+  modalCloses.forEach(closeBtn => {
+    closeBtn.addEventListener('click', function() {
+      const modal = this.closest('.modal');
+      if (modal) closeModal(modal);
+    });
+  });
+  
+  // Закрытие по клику на overlay
+  [orderModal, paymentSuccessModal].forEach(modal => {
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal(this);
+        }
+      });
+    }
+  });
+  
+  // Закрытие по ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      [orderModal, paymentSuccessModal].forEach(modal => {
+        if (modal && modal.classList.contains('active')) {
+          closeModal(modal);
+        }
+      });
+    }
+  });
+  
+  // Кнопки "Оформить запрос" открывают модалку заказа
+  const orderButtons = document.querySelectorAll('.btn-order');
+  orderButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.service-card');
+      if (card && orderModal) {
+        const serviceName = card.querySelector('h3')?.textContent?.trim() || '';
+        const price = card.querySelector('.price')?.textContent?.trim() || '';
+        const modalServiceName = document.getElementById('modalServiceName');
+        const modalPrice = document.getElementById('modalPrice');
+        if (modalServiceName) modalServiceName.textContent = serviceName;
+        if (modalPrice) modalPrice.textContent = price;
+        openModal(orderModal);
+      }
+    });
+  });
+  
+  // FAQ Аккордеон
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.closest('.faq-item');
+      const isActive = faqItem.classList.contains('active');
+      
+      // Закрываем все остальные
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Открываем текущий, если он был закрыт
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    });
+  });
+  
+  // Мобильное меню
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', function() {
+      mobileMenu.classList.add('active');
+    });
+  }
+  
+  if (mobileMenuClose && mobileMenu) {
+    mobileMenuClose.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+    });
+  }
+  
+  // Мобильный язык dropdown
+  const mobileLangToggle = document.getElementById('mobileLangToggle');
+  const mobileLangDropdown = document.getElementById('mobileLangDropdown');
+  
+  if (mobileLangToggle && mobileLangDropdown) {
+    mobileLangToggle.addEventListener('click', function() {
+      mobileLangDropdown.classList.toggle('active');
+    });
+  }
+  
+  // Desktop dropdowns (services nav)
+  const servicesNav = document.querySelector('.services-nav');
+  if (servicesNav) {
+    servicesNav.addEventListener('mouseenter', function() {
+      this.classList.add('active');
+    });
+    servicesNav.addEventListener('mouseleave', function() {
+      this.classList.remove('active');
+    });
+  }
+
+  // Sticky header эффект при прокрутке
+  const siteHeader = document.getElementById('site-header');
+  if (siteHeader) {
+    let lastScrollTop = 0;
+    const scrollThreshold = 10;
+    
+    function handleScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > scrollThreshold) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+      
+      lastScrollTop = scrollTop;
+    }
+    
+    // Проверяем начальное состояние
+    handleScroll();
+    
+    // Оптимизированный обработчик прокрутки с throttle
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+});
+</file>
+
+<file path="style.css">
+/* ============================================
+   ВИДЕОФОН (Video Background)
+   ============================================ */
+.video-bg-layer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(139, 0, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.06) 0%, transparent 70%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, transparent 20%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, transparent 20%);
+  pointer-events: none;
+}
+
+/* Fallback: отключение видео на мобильных и слабых устройствах */
+@media (max-width: 768px) {
+  .video-bg-layer,
+  .video-bg {
+    display: none;
+  }
+  
+  .video-overlay {
+    display: none;
+  }
+}
+
+/* Отключение видео при prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .video-bg-layer,
+  .video-bg {
+    display: none;
+  }
+  
+  .video-overlay {
+    display: none;
+  }
+}
+
+/* Отключение видео на очень маленьких экранах */
+@media (max-width: 480px) {
+  .video-bg-layer,
+  .video-bg {
+    display: none;
+  }
+  
+  .video-overlay {
+    display: none;
+  }
+}
+
+/* Отключение видео при низкой производительности (если браузер поддерживает) */
+@media (prefers-reduced-data: reduce) {
+  .video-bg-layer,
+  .video-bg {
+    display: none;
+  }
+  
+  .video-overlay {
+    display: none;
+  }
+}
+
+/* ============================================
+   ГЛОБАЛЬНЫЕ ТОКЕНЫ (CSS Variables)
+   ============================================ */
+:root {
+  /* Цвета */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: rgba(20, 20, 20, 0.8);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-glass-strong: rgba(255, 255, 255, 0.1);
+  
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-hover: rgba(255, 255, 255, 0.2);
+  
+  --accent-red: #ff3b30;
+  --accent-red-hover: #ff5a52;
+  --accent-red-active: #e02e24;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6);
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  
+  /* Отступы секций */
+  --section-pad-y-desktop: 64px;
+  --section-pad-y-tablet: 56px;
+  --section-pad-y-mobile: 48px;
+  --block-gap: 20px;
+  
+  /* Header offset для компенсации sticky header (высота header ~52px + зазор 12px) */
+  --header-offset-desktop: 64px;
+  --header-offset-tablet: 60px;
+  --header-offset-mobile: 56px;
+  
+  /* Шрифты */
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Segoe UI", "Roboto", sans-serif;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  background: transparent;
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Премиальный статичный фон: чёрный + бордово-красная аура (fallback когда видео отключено) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.05) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Показывать fallback фон только когда видео отключено (на мобильных) */
+@media (min-width: 769px) {
+  body::before {
+    display: none;
+  }
+}
+
+/* Блокировка скролла при открытой модалке */
+body.modal-open {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* ============================================
+   HEADER (Glass Sticky)
+   ============================================ */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+  will-change: background-color, border-color;
+}
+
+/* Улучшенный фон при прокрутке */
+#site-header.scrolled {
+  background: rgba(0, 0, 0, 0.75);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.nav-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  padding: 8px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+/* Services Nav Dropdown */
+.services-nav {
+  position: relative;
+}
+
+.services-nav-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.services-nav-toggle:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.nav-arrow {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.services-nav-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition-base);
+  z-index: 1001;
+}
+
+.services-nav.active .services-nav-dropdown,
+.services-nav:hover .services-nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.services-nav-option {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.services-nav-option:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass-strong);
+}
+
+/* Lang Dropdown */
+.lang-desktop {
+  position: relative;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.lang-toggle:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition-base);
+  z-index: 1001;
+}
+
+.lang-desktop:hover .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 14px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.lang-option:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass-strong);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.burger-icon {
+  display: block;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 32px;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 48px;
+}
+
+.mobile-nav-link {
+  padding: 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.mobile-lang {
+  margin-top: 32px;
+}
+
+.mobile-lang-toggle {
+  width: 100%;
+  padding: 16px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-lang-dropdown {
+  margin-top: 8px;
+  display: none;
+}
+
+.mobile-lang-dropdown.active {
+  display: block;
+}
+
+.mobile-lang-option {
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 16px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.mobile-lang-option:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--header-offset-desktop) 24px 28px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.hero-title {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.hero-trust-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.trust-badge:hover {
+  border-color: var(--border-color-hover);
+  color: var(--text-primary);
+  background: var(--bg-glass-strong);
+}
+
+/* Trust Block */
+.trust-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+  padding: 18px 20px;
+  background: rgba(18, 18, 18, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 12px 8px;
+}
+
+.trust-item-icon {
+  font-size: 24px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.trust-item-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Reputation Block */
+.reputation-block {
+  max-width: 680px;
+  margin: 16px auto 0;
+  padding: 32px 40px;
+  background: rgba(18, 18, 18, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 2px 16px rgba(0, 0, 0, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.reputation-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.reputation-text {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0 0 14px 0;
+  font-weight: 400;
+}
+
+.reputation-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   SERVICES SECTION
+   ============================================ */
+.services-section {
+  padding: 32px 0 var(--section-pad-y-desktop) 0;
+  position: relative;
+  z-index: 2;
+  scroll-margin-top: var(--header-offset-desktop);
+  margin-top: 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--block-gap);
+  align-items: stretch;
+}
+
+.services-category-title {
+  grid-column: 1 / -1;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.services-category-title:first-child {
+  margin-top: 0;
+}
+
+.service-card {
+  position: relative;
+  background: rgba(18, 18, 18, 0.45);
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 200ms ease-out;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  height: 100%;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 50%
+  ),
+  linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 40%
+  );
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.15) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 0 0 20px 20px;
+}
+
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.service-card:hover::before {
+  opacity: 0.55;
+}
+
+.service-card:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.card-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.card-description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.4em;
+}
+
+.card-price-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-base);
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-height: 48px;
+  line-height: 1.2;
+}
+
+.btn-order {
+  background: var(--accent-red);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+}
+
+.btn-order:hover {
+  background: var(--accent-red-hover);
+  box-shadow: 0 6px 16px rgba(255, 59, 48, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-order:active {
+  background: var(--accent-red-active);
+  transform: translateY(0);
+}
+
+.btn-preview,
+.btn-more {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.btn-preview:hover,
+.btn-more:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-preview:focus-visible,
+.btn-more:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.card-trust-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg-glass);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.trust-icon {
+  font-size: 16px;
+}
+
+.card-details {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 4px;
+}
+
+.card-details p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================
+   MODALS
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--bg-card);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  max-width: 540px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: modalSlideIn var(--transition-slow) ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.modal-content .close:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.modal-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.modal-price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+}
+
+.modal-trust-info {
+  padding: 20px;
+  background: var(--bg-glass);
+  border-radius: var(--radius-md);
+  margin-bottom: 32px;
+}
+
+.trust-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-description h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.modal-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.modal-description li {
+  padding: 12px 0 12px 24px;
+  position: relative;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.modal-description li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-red);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-pay {
+  background: var(--accent-red);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+}
+
+.btn-pay:hover {
+  background: var(--accent-red-hover);
+  box-shadow: 0 6px 16px rgba(255, 59, 48, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-contact {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-contact:hover {
+  color: var(--text-primary);
+  border-color: var(--border-color-hover);
+  background: var(--bg-glass);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  color: var(--text-primary);
+  border-color: var(--border-color-hover);
+  background: var(--bg-glass);
+}
+
+.payment-success-modal {
+  text-align: center;
+}
+
+.payment-success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  background: rgba(52, 199, 89, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #34c759;
+  font-weight: bold;
+}
+
+.payment-success-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.faq-section {
+  padding: var(--section-pad-y-desktop) 0;
+  position: relative;
+  z-index: 2;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  scroll-margin-top: var(--header-offset-desktop);
+}
+
+.faq-section::before,
+.faq-section::after {
+  content: none !important;
+  display: none !important;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.faq-item {
+  position: relative;
+  background: rgba(18, 18, 18, 0.45);
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 200ms ease-out;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.faq-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 50%
+  ),
+  linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 40%
+  );
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.faq-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.faq-item:hover::before {
+  opacity: 0.55;
+}
+
+.faq-question {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-question h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.faq-icon {
+  font-size: 24px;
+  color: var(--text-secondary);
+  transition: transform var(--transition-base);
+  font-weight: 300;
+  width: 24px;
+  text-align: center;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow) ease, padding var(--transition-slow) ease;
+  padding: 0 24px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 20px 20px;
+}
+
+.faq-answer p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: 48px 0 24px;
+  border-top: 1px solid var(--border-color);
+  margin-top: var(--section-pad-y-desktop);
+  position: relative;
+  z-index: 2;
+  box-shadow: none !important;
+}
+
+.footer::before,
+.footer::after {
+  content: none !important;
+  display: none !important;
+}
+
+.footer-info {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.footer-info p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.footer-trust {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+/* ============================================
+   ADMIN PANEL
+   ============================================ */
+.admin-login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.admin-login-content {
+  background: var(--bg-card);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow-xl);
+}
+
+.admin-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.admin-close-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.admin-login-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.admin-login-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-password-input {
+  padding: 14px 16px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: var(--font-family);
+  transition: all var(--transition-fast);
+}
+
+.admin-password-input:focus {
+  outline: none;
+  border-color: var(--border-color-hover);
+  background: var(--bg-glass-strong);
+}
+
+.admin-login-button {
+  padding: 14px 24px;
+  background: var(--accent-red);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.admin-login-button:hover {
+  background: var(--accent-red-hover);
+  transform: translateY(-2px);
+}
+
+.admin-error-message {
+  color: var(--accent-red);
+  font-size: 14px;
+  text-align: center;
+  padding: 8px;
+}
+
+.admin-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-card);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 400px;
+  width: 90%;
+  z-index: 3500;
+}
+
+.admin-panel-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-panel-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.admin-panel-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-action-button {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.admin-action-button:hover {
+  color: var(--text-primary);
+  border-color: var(--border-color-hover);
+  background: var(--bg-glass);
+}
+
+.admin-panel-content {
+  padding: 20px;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.admin-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .lang-desktop {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero-section {
+    padding: var(--header-offset-tablet) 24px 28px;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .trust-block {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 16px 16px;
+    margin-top: 14px;
+  }
+
+  .trust-item {
+    padding: 10px 8px;
+  }
+
+  .trust-item-icon {
+    font-size: 22px;
+  }
+
+  .trust-item-text {
+    font-size: 12px;
+  }
+
+  .reputation-block {
+    max-width: 100%;
+    margin: 14px 0 0;
+    padding: 28px 32px;
+  }
+
+  .reputation-title {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .reputation-text {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .services-section {
+    padding: 28px 0 var(--section-pad-y-tablet) 0;
+    margin-top: 0;
+    scroll-margin-top: var(--header-offset-tablet);
+  }
+
+  .faq-section {
+    padding: var(--section-pad-y-tablet) 0;
+  }
+
+  .services-category-title {
+    font-size: 28px;
+    margin: 0 0 20px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+
+  .footer {
+    margin-top: var(--section-pad-y-tablet);
+    padding: 40px 0 20px;
+  }
+
+  .footer-info {
+    margin-bottom: 32px;
+  }
+
+  .service-card {
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  }
+
+  .faq-item {
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  }
+
+  .modal-content {
+    padding: 32px 24px;
+  }
+
+  .admin-panel {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav-wrapper {
+    padding: 12px 16px;
+  }
+
+  .hero-section {
+    padding: var(--header-offset-mobile) 16px 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 14px;
+  }
+
+  .services-section {
+    padding: 24px 0 var(--section-pad-y-mobile) 0;
+    margin-top: 0;
+    scroll-margin-top: var(--header-offset-mobile);
+  }
+
+  .faq-section {
+    padding: var(--section-pad-y-mobile) 0;
+    scroll-margin-top: var(--header-offset-mobile);
+  }
+
+  .services-category-title {
+    margin: 0 0 18px;
+  }
+
+  .section-title {
+    margin-bottom: 24px;
+  }
+
+  .faq-container {
+    gap: 12px;
+  }
+
+  .faq-question {
+    padding: 18px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 18px 18px;
+  }
+
+  .service-card {
+    padding: 24px;
+    backdrop-filter: blur(10px) saturate(130%);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+  }
+
+  .faq-item {
+    backdrop-filter: blur(10px) saturate(130%);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+  }
+
+  .footer {
+    margin-top: var(--section-pad-y-mobile);
+    padding: 36px 0 20px;
+  }
+
+  .footer-info {
+    margin-bottom: 28px;
+  }
+
+  .trust-badge {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .trust-block {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 16px 12px;
+    margin-top: 12px;
+  }
+
+  .trust-item {
+    padding: 10px 6px;
+    gap: 6px;
+  }
+
+  .trust-item-icon {
+    font-size: 20px;
+  }
+
+  .trust-item-text {
+    font-size: 12px;
+  }
+
+  .reputation-block {
+    max-width: 100%;
+    margin: 12px 0 0;
+    padding: 24px 20px;
+  }
+
+  .reputation-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .reputation-text {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+}
+</file>
+
+<file path="vercel.json">
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/video/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+</file>
+
+<file path=".gitignore">
+node_modules/
+.next/
+dist/
+build/
+out/
+.vercel/
+.env
+.env.*
+.env.local
+.env.*.local
+*.log
+.DS_Store
+
+.vercel
+.env*.local
+</file>
+
+</files>
