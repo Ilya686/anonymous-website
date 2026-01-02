@@ -18,20 +18,19 @@
     <link rel="preload" href="js/i18n.js" as="script" />
     <link rel="preload" href="script.js" as="script" />
     <link rel="preload" href="js/pwa.js" as="script" />
-    <title>
-      Anonymous Services - Цифровые услуги
-    </title>
+    <title>Anonymous Services</title>
     <meta name="description" content="Профессиональные цифровые услуги с гарантией конфиденциальности и качества" />
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Anonymous" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="icon" href="icons/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="icons/icon-192x192.png" sizes="192x192" />
-    <link rel="icon" href="icons/icon-512x512.png" sizes="512x512" />
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" nomodule="">
     </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
   <body>
     <link rel="stylesheet" href="style.css" />
@@ -59,6 +58,8 @@
             </button>
             <div class="services-nav-dropdown" id="servicesNavDropdown">
               <a href="#category-personal" class="services-nav-option" data-i18n="category_personal_documents">              Личные документы
+</a>
+              <a href="#category-physical" class="services-nav-option" data-i18n="category_physical_documents">              Физические документы
 </a>
               <a href="#category-financial" class="services-nav-option" data-i18n="category_financial_documents">              Финансовые документы
 </a>
@@ -195,7 +196,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_id_card" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -232,7 +233,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_drivers_license" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -269,7 +270,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_passport" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -291,6 +292,105 @@
               </p>
             </div>
           </div>
+          <h2 id="category-physical" class="services-category-title" data-i18n="category_physical_documents">
+            Физические документы
+          </h2>
+          <div class="service-card" data-service-key="service_physical_id_card" data-price="800">
+            <div class="card-header">
+              <h3 data-i18n="service_physical_id_card">
+                Физическое удостоверение личности
+              </h3>
+              <p class="card-description" data-i18n="service_physical_id_card_desc">
+                Официальный физический документ с вашими данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                800 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-service="service_physical_id_card" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more-physical" data-physical-type="id_card" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_physical_drivers_license" data-price="1000">
+            <div class="card-header">
+              <h3 data-i18n="service_physical_drivers_license">
+                Физические водительские права
+              </h3>
+              <p class="card-description" data-i18n="service_physical_drivers_license_desc">
+                Водительское удостоверение в физическом формате
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                1000 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-service="service_physical_drivers_license" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more-physical" data-physical-type="drivers_license" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+          </div>
+          <div class="service-card" data-service-key="service_physical_passport" data-price="2500">
+            <div class="card-header">
+              <h3 data-i18n="service_physical_passport">
+                Физический паспорт
+              </h3>
+              <p class="card-description" data-i18n="service_physical_passport_desc">
+                Паспорт в физическом формате с указанными вами данными
+              </p>
+            </div>
+            <div class="card-price-wrapper">
+              <div class="price">
+                2500 €
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-preview" data-service="service_physical_passport" data-i18n="btn_preview">
+                Предосмотр
+              </button>
+              <button class="btn btn-order" data-i18n="btn_order">
+                Оформить запрос
+              </button>
+              <button class="btn btn-more-physical" data-physical-type="passport" data-i18n="btn_details">
+                Подробнее
+              </button>
+            </div>
+            <div class="card-trust-note">
+              <span class="trust-icon">              🔒
+</span>
+              <span data-i18n="card_contact_direct">              Контакт с исполнителем напрямую
+</span>
+            </div>
+          </div>
           <h2 id="category-financial" class="services-category-title" data-i18n="category_financial_documents">
             Финансовые документы
           </h2>
@@ -309,7 +409,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_salary_1month" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -346,7 +446,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_invoice_mediamarkt" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -383,7 +483,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_invoice_saturn" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -420,7 +520,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_invoice_apple" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -460,7 +560,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_criminal_record_extended" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -497,7 +597,7 @@
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn btn-preview" data-i18n="btn_preview">
+              <button class="btn btn-preview" data-service="service_criminal_record" data-i18n="btn_preview">
                 Предосмотр
               </button>
               <button class="btn btn-order" data-i18n="btn_order">
@@ -552,6 +652,7 @@
           </ul>
         </div>
         <div class="modal-actions">
+          <div id="turnstile-container" style="margin-bottom: 16px; display: flex; justify-content: center;"></div>
           <button class="btn btn-pay" data-i18n="btn_pay">
             Перейти к оплате
           </button>
@@ -577,6 +678,23 @@
         <div class="modal-actions">
           <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="btn btn-contact" style="text-decoration:none;display:inline-block">          Связаться с продавцом
 </a>
+          <button class="btn btn-secondary">
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="physicalDetailsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">        ×
+</span>
+        <h2 id="physicalModalTitle">
+        </h2>
+        <div class="modal-description">
+          <p id="physicalModalText" style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+          </p>
+        </div>
+        <div class="modal-actions">
           <button class="btn btn-secondary">
             Закрыть
           </button>
@@ -687,6 +805,24 @@
     <script>
       self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Anonymous Services - Цифровые услуги\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Профессиональные цифровые услуги с гарантией конфиденциальности и качества\"}],[\"$\",\"link\",\"4\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"use-credentials\"}],[\"$\",\"meta\",\"5\",{\"name\":\"apple-mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",\"6\",{\"name\":\"apple-mobile-web-app-title\",\"content\":\"Anonymous\"}],[\"$\",\"meta\",\"7\",{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"black-translucent\"}],[\"$\",\"link\",\"8\",{\"rel\":\"icon\",\"href\":\"/icons/favicon.ico\",\"sizes\":\"32x32\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/icons/icon-192x192.png\",\"sizes\":\"192x192\"}],[\"$\",\"link\",\"10\",{\"rel\":\"icon\",\"href\":\"/icons/icon-512x512.png\",\"sizes\":\"512x512\"}],[\"$\",\"link\",\"11\",{\"rel\":\"apple-touch-icon\",\"href\":\"/icons/apple-touch-icon.png\"}]]\n3:null\n"])
     </script>
+    <!-- Модальное окно просмотра изображений -->
+    <div id="previewModal" class="preview-modal" style="display: none;">
+      <div class="preview-modal-backdrop"></div>
+      <div class="preview-modal-content">
+        <button class="preview-modal-close" id="previewModalClose">×</button>
+        <button class="preview-modal-nav preview-modal-nav-prev" id="previewModalPrev" aria-label="Предыдущее изображение">‹</button>
+        <button class="preview-modal-nav preview-modal-nav-next" id="previewModalNext" aria-label="Следующее изображение">›</button>
+        <div class="preview-modal-gallery-container">
+          <div class="preview-modal-image-wrapper">
+            <img id="previewModalImage" src="" alt="Preview" class="preview-modal-image" />
+            <video id="modal-video" playsinline muted loop controls controlsList="nodownload" oncontextmenu="return false;" style="display:none; max-width:100%;"></video>
+            <div class="preview-watermark-grid"></div>
+          </div>
+          <p class="watermark-notice" data-i18n="watermark_notice">Вы получите готовый документ в высоком качестве и без водяных знаков.</p>
+        </div>
+      </div>
+    </div>
+    
     <script src="js/i18n.js"></script>
     <script src="script.js"></script>
     <script src="js/pwa.js"></script>

@@ -12,6 +12,7 @@ const translations = {
     
     // Категории услуг
     category_personal_documents: "Личные документы",
+    category_physical_documents: "Физические документы",
     category_financial_documents: "Финансовые документы",
     category_certificates: "Справки и подтверждения",
     
@@ -46,6 +47,19 @@ const translations = {
     service_passport: "Цифровой паспорт",
     service_passport_desc: "Паспорт с указанными вами данными",
     service_passport_details: "Фон для документа после оплаты заказа можно будет выбрать другой",
+    
+    // Услуги - Физические документы
+    service_physical_id_card: "Физическое удостоверение личности",
+    service_physical_id_card_desc: "Официальный физический документ с вашими данными",
+    service_physical_id_card_details: "Изготовление документа 2-3 дня, доставка 5-7 дней. Суть работы: Производите оплату, предоставляете данные для документа и исполнители начинают работу. Перед печатью документа вам отправят документ для проверки на наличие ошибок, если ошибок нет то приступаем к печати. После как документ будет полностью готов вам вышлют видео вашего документа и запросят данные для доставки. Также трек номер для отслеживания товара.",
+    
+    service_physical_drivers_license: "Физические водительские права",
+    service_physical_drivers_license_desc: "Водительское удостоверение в физическом формате",
+    service_physical_drivers_license_details: "Изготовление документа 2-3 дня, доставка 5-7 дней. Суть работы: Производите оплату, предоставляете данные для документа и исполнители начинают работу. Перед печатью документа вам отправят документ для проверки на наличие ошибок, если ошибок нет то приступаем к печати. После как документ будет полностью готов вам вышлют видео вашего документа и запросят данные для доставки. Также трек номер для отслеживания товара.",
+    
+    service_physical_passport: "Физический паспорт",
+    service_physical_passport_desc: "Паспорт в физическом формате с указанными вами данными",
+    service_physical_passport_details: "Изготовление документа 4-6 дней, доставка 5-7 дней. Суть работы: Производите оплату, предоставляете данные для документа и исполнители начинают работу. Перед печатью документа вам отправят документ для проверки на наличие ошибок, если ошибок нет то приступаем к печати. После как документ будет полностью готов вам вышлют видео вашего документа и запросят данные для доставки. Также трек номер для отслеживания товара.",
     
     // Услуги - Финансовые документы
     service_salary_1month: "Расчетная заработной платы (1 месяц)",
@@ -89,6 +103,7 @@ const translations = {
     modal_step1: "После оплаты отправьте TXID или скриншот платежа исполнителю",
     modal_step2: "Укажите название услуги, которую вы выбрали",
     modal_step3: "Предоставьте желаемые данные для документа",
+    watermark_notice: "Вы получите готовый документ в высоком качестве и без водяных знаков.",
     
     // FAQ
     faq_title: "Часто задаваемые вопросы",
@@ -120,6 +135,7 @@ const translations = {
     
     // Service categories
     category_personal_documents: "Personal Documents",
+    category_physical_documents: "Physical Documents",
     category_financial_documents: "Financial Documents",
     category_certificates: "Certificates",
     
@@ -154,6 +170,19 @@ const translations = {
     service_passport: "Digital Passport",
     service_passport_desc: "Passport with your specified data",
     service_passport_details: "Document background can be changed after order payment",
+    
+    // Services - Physical Documents
+    service_physical_id_card: "Physical ID Card",
+    service_physical_id_card_desc: "Official physical document with your data",
+    service_physical_id_card_details: "Document production 2-3 days, delivery 5-7 days. How it works: You make payment, provide data for the document and executors start work. Before printing the document, you will be sent the document for error checking. If there are no errors, we proceed to printing. After the document is completely ready, you will be sent a video of your document and asked for delivery data. Also tracking number for package tracking.",
+    
+    service_physical_drivers_license: "Physical Driver License",
+    service_physical_drivers_license_desc: "Driver's license in physical format",
+    service_physical_drivers_license_details: "Document production 2-3 days, delivery 5-7 days. How it works: You make payment, provide data for the document and executors start work. Before printing the document, you will be sent the document for error checking. If there are no errors, we proceed to printing. After the document is completely ready, you will be sent a video of your document and asked for delivery data. Also tracking number for package tracking.",
+    
+    service_physical_passport: "Physical Passport",
+    service_physical_passport_desc: "Passport in physical format with your specified data",
+    service_physical_passport_details: "Document production 4-6 days, delivery 5-7 days. How it works: You make payment, provide data for the document and executors start work. Before printing the document, you will be sent the document for error checking. If there are no errors, we proceed to printing. After the document is completely ready, you will be sent a video of your document and asked for delivery data. Also tracking number for package tracking.",
     
     // Services - Financial Documents
     service_salary_1month: "Salary Statement (1 month)",
@@ -197,6 +226,7 @@ const translations = {
     modal_step1: "After payment, send TXID or payment screenshot to the executor",
     modal_step2: "Specify the name of the service you selected",
     modal_step3: "Provide desired data for the document",
+    watermark_notice: "You will receive a finished document in high quality and without watermarks.",
     
     // FAQ
     faq_title: "Frequently Asked Questions",
@@ -228,6 +258,7 @@ const translations = {
     
     // Dienstleistungskategorien
     category_personal_documents: "Persönliche Dokumente",
+    category_physical_documents: "Physische Dokumente",
     category_financial_documents: "Finanzdokumente",
     category_certificates: "Bescheinigungen",
     
@@ -262,6 +293,19 @@ const translations = {
     service_passport: "Digitaler Reisepass",
     service_passport_desc: "Reisepass mit Ihren angegebenen Daten",
     service_passport_details: "Der Dokumentenhintergrund kann nach der Bestellzahlung geändert werden",
+    
+    // Dienstleistungen - Physische Dokumente
+    service_physical_id_card: "Physische ID-Karte",
+    service_physical_id_card_desc: "Offizielles physisches Dokument mit Ihren Daten",
+    service_physical_id_card_details: "Dokumentenerstellung 2-3 Tage, Lieferung 5-7 Tage. So funktioniert es: Sie zahlen, geben Daten für das Dokument an und die Ausführenden beginnen mit der Arbeit. Vor dem Drucken des Dokuments erhalten Sie das Dokument zur Fehlerprüfung. Wenn keine Fehler vorliegen, gehen wir zum Drucken über. Nachdem das Dokument vollständig fertig ist, erhalten Sie ein Video Ihres Dokuments und werden um Lieferdaten gebeten. Auch Tracking-Nummer zur Paketverfolgung.",
+    
+    service_physical_drivers_license: "Physische Führerscheine",
+    service_physical_drivers_license_desc: "Führerschein im physischen Format",
+    service_physical_drivers_license_details: "Dokumentenerstellung 2-3 Tage, Lieferung 5-7 Tage. So funktioniert es: Sie zahlen, geben Daten für das Dokument an und die Ausführenden beginnen mit der Arbeit. Vor dem Drucken des Dokuments erhalten Sie das Dokument zur Fehlerprüfung. Wenn keine Fehler vorliegen, gehen wir zum Drucken über. Nachdem das Dokument vollständig fertig ist, erhalten Sie ein Video Ihres Dokuments und werden um Lieferdaten gebeten. Auch Tracking-Nummer zur Paketverfolgung.",
+    
+    service_physical_passport: "Physischer Reisepass",
+    service_physical_passport_desc: "Reisepass im physischen Format mit Ihren angegebenen Daten",
+    service_physical_passport_details: "Dokumentenerstellung 4-6 Tage, Lieferung 5-7 Tage. So funktioniert es: Sie zahlen, geben Daten für das Dokument an und die Ausführenden beginnen mit der Arbeit. Vor dem Drucken des Dokuments erhalten Sie das Dokument zur Fehlerprüfung. Wenn keine Fehler vorliegen, gehen wir zum Drucken über. Nachdem das Dokument vollständig fertig ist, erhalten Sie ein Video Ihres Dokuments und werden um Lieferdaten gebeten. Auch Tracking-Nummer zur Paketverfolgung.",
     
     // Dienstleistungen - Finanzdokumente
     service_salary_1month: "Gehaltsabrechnung (1 Monat)",
@@ -305,6 +349,7 @@ const translations = {
     modal_step1: "Nach der Zahlung senden Sie TXID oder Zahlungsscreenshot an den Ausführenden",
     modal_step2: "Geben Sie den Namen der von Ihnen gewählten Dienstleistung an",
     modal_step3: "Geben Sie die gewünschten Daten für das Dokument an",
+    watermark_notice: "Sie erhalten ein fertiges Dokument in hoher Qualität und ohne Wasserzeichen.",
     
     // FAQ
     faq_title: "Häufig gestellte Fragen",
