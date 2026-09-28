@@ -144,15 +144,17 @@ async function checkETH(address, expected, sinceTs) {
   return { confirmed: false };
 }
 
-// USDT TRC-20: TronGrid (без ключа)
+// USDT TRC-20: TronGrid (only_confirmed=true — только транзакции в подтверждённом блоке)
 async function checkUSDT(address, expected, sinceTs) {
-  const url = `https://api.trongrid.io/v1/accounts/${address}/transactions/trc20?limit=30&only_to=true&contract_address=${USDT_TRC20_CONTRACT}`;
+  const url = `https://api.trongrid.io/v1/accounts/${address}/transactions/trc20`
+    + `?limit=30&only_to=true&only_confirmed=true&contract_address=${USDT_TRC20_CONTRACT}`;
   const data = await fetchJSON(url);
   const txs = Array.isArray(data.data) ? data.data : [];
   for (const tx of txs) {
     const tsMs = Number(tx.block_timestamp || 0);
     if (tsMs && tsMs < sinceTs * 1000) continue;
     if ((tx.to || '') !== address) continue;
+    if (tx.type && tx.type !== 'Transfer') continue;
     const decimals = tx.token_info?.decimals ?? 6;
     const amount = Number(tx.value) / Math.pow(10, decimals);
     if (amount > 0 && amountMatches(amount, expected)) {
@@ -167,7 +169,7 @@ async function checkUSDT(address, expected, sinceTs) {
   return { confirmed: false };
 }
 
-// SOL: Solana JSON-RPC
+// SOL: Solana JSON-RPC (только confirmed/finalized статусы)
 async function checkSOL(address, expected, sinceTs) {
   const rpc = 'https://api.mainnet-beta.solana.com';
   const sigResp = await fetchJSON(rpc, {
@@ -184,13 +186,19 @@ async function checkSOL(address, expected, sinceTs) {
     const bt = Number(s.blockTime || 0);
     if (bt && bt < sinceTs) continue;
     if (s.err) continue;
+    const status = s.confirmationStatus;
+    if (status && status !== 'confirmed' && status !== 'finalized') continue;
     const txResp = await fetchJSON(rpc, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         jsonrpc: '2.0', id: 1,
         method: 'getTransaction',
-        params: [s.signature, { encoding: 'jsonParsed', maxSupportedTransactionVersion: 0 }],
+        params: [s.signature, {
+          encoding: 'jsonParsed',
+          maxSupportedTransactionVersion: 0,
+          commitment: 'confirmed',
+        }],
       }),
     });
     const tx = txResp.result;

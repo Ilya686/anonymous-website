@@ -91,6 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // ================================
   // Крипто-оплата
   // ================================
+  function tr(key, fallback) {
+    const lang = (typeof currentLanguage !== 'undefined')
+      ? currentLanguage
+      : (localStorage.getItem('preferredLanguage') || 'ru');
+    if (typeof translations !== 'undefined' && translations[lang] && translations[lang][key]) {
+      return translations[lang][key];
+    }
+    return fallback;
+  }
   const CURRENCY_LABEL = {
     btc:  { name: 'Bitcoin',  ticker: 'BTC' },
     ltc:  { name: 'Litecoin', ticker: 'LTC' },
@@ -224,38 +233,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const qrEl = document.getElementById('cryptoPayQr');
     const statusEl = document.getElementById('cryptoPayStatus');
 
-    if (titleEl) titleEl.textContent = `Оплата в ${label.name} (${label.ticker})`;
+    const titleTpl = tr('crypto_pay_title_currency', 'Оплата в {name} ({ticker})');
+    if (titleEl) titleEl.textContent = titleTpl.replace('{name}', label.name).replace('{ticker}', label.ticker);
     if (serviceEl) serviceEl.textContent = serviceName;
     if (priceEl) priceEl.textContent = priceText || `${priceEur} €`;
     if (addressEl) addressEl.textContent = address;
     if (amountEl) amountEl.textContent = '…';
     if (qrEl) qrEl.innerHTML = '';
-    if (statusEl) {
-      statusEl.classList.remove('confirmed', 'error');
-      const t = statusEl.querySelector('.crypto-pay-status-text');
-      if (t) t.textContent = 'Загружаем курс…';
-    }
+    setStatus('loading', tr('crypto_status_loading_rate', 'Загружаем курс…'));
 
     if (cryptoPayModal) openModal(cryptoPayModal);
 
-    // Получаем котировку
-    let quote;
-    try {
-      const r = await fetch(`/api/crypto-quote?currency=${currency}&eur=${encodeURIComponent(priceEur)}`);
-      if (!r.ok) throw new Error('quote_failed');
-      quote = await r.json();
-    } catch (err) {
-      console.error('[Crypto] quote error:', err);
-      if (statusEl) {
-        statusEl.classList.add('error');
-        const t = statusEl.querySelector('.crypto-pay-status-text');
-        if (t) t.textContent = 'Не удалось получить курс. Попробуйте позже или свяжитесь с продавцом.';
-      }
+    // Получаем котировку с ретраями
+    let quote = await fetchQuote(currency, priceEur);
+    if (!quote) {
+      setStatus('error', tr('crypto_status_rate_error', 'Не удалось получить курс. Попробуйте позже или свяжитесь с продавцом.'));
       return;
     }
 
     const amountStr = Number(quote.amount).toFixed(quote.decimals);
-    if (amountEl) amountEl.textContent = `${amountStr} ${label.ticker.split(' ')[0]}`;
+    const tickerShort = label.ticker.split(' ')[0];
+    if (amountEl) amountEl.textContent = `${amountStr} ${tickerShort}`;
 
     // QR
     if (qrEl) {
@@ -265,10 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
       qrEl.innerHTML = `<img alt="QR" width="180" height="180" src="${src}">`;
     }
 
-    if (statusEl) {
-      const t = statusEl.querySelector('.crypto-pay-status-text');
-      if (t) t.textContent = 'Ожидание подтверждения в блокчейне…';
-    }
+    setStatus('waiting', tr('crypto_status_waiting', 'Ожидание подтверждения в блокчейне…'));
 
     currentPayment = {
       currency,
@@ -280,14 +275,40 @@ document.addEventListener('DOMContentLoaded', function() {
     schedulePoll(3000);
   }
 
+  function setStatus(kind, text) {
+    const statusEl = document.getElementById('cryptoPayStatus');
+    if (!statusEl) return;
+    statusEl.classList.remove('confirmed', 'error');
+    if (kind === 'confirmed') statusEl.classList.add('confirmed');
+    else if (kind === 'error') statusEl.classList.add('error');
+    const t = statusEl.querySelector('.crypto-pay-status-text');
+    if (t && typeof text === 'string') t.textContent = text;
+  }
+
+  async function fetchQuote(currency, priceEur) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const r = await fetch(`/api/crypto-quote?currency=${currency}&eur=${encodeURIComponent(priceEur)}`);
+        if (r.ok) return await r.json();
+      } catch (err) {
+        console.warn('[Crypto] quote attempt failed:', err);
+      }
+      if (attempt === 0) await new Promise(res => setTimeout(res, 1000));
+    }
+    return null;
+  }
+
+  const POLL_INTERVAL_MS = 15000;
+
   function schedulePoll(delayMs) {
     if (pollTimer) clearTimeout(pollTimer);
     pollTimer = setTimeout(runPoll, delayMs);
   }
 
-  async function runPoll() {
-    if (!currentPayment) return;
+  async function runPoll(manual) {
+    if (!currentPayment) return false;
     const payment = currentPayment;
+    let confirmed = false;
     try {
       const r = await fetch('/api/check-payment', {
         method: 'POST',
@@ -301,19 +322,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = await r.json().catch(() => ({}));
       if (data && data.confirmed) {
         onPaymentConfirmed(data);
-        return;
+        return true;
       }
     } catch (err) {
       console.warn('[Crypto] poll error:', err);
     }
-    // Backoff: первые 3 минуты каждые 15 с, дальше — каждые 30 с
-    const elapsed = Date.now() - pollStartedAt;
-    const nextDelay = elapsed < 3 * 60 * 1000 ? 15000 : 30000;
-    schedulePoll(nextDelay);
+    if (!manual) schedulePoll(POLL_INTERVAL_MS);
+    return confirmed;
   }
 
   function onPaymentConfirmed(data) {
     stopPaymentPolling();
+    setStatus('confirmed', tr('crypto_status_confirmed', 'Транзакция подтверждена'));
     if (cryptoPayModal) closeModal(cryptoPayModal);
     if (paymentSuccessModal) {
       paymentSuccessModal.style.display = '';
@@ -321,6 +341,27 @@ document.addEventListener('DOMContentLoaded', function() {
       openModal(paymentSuccessModal);
     }
     console.log('[Crypto] payment confirmed:', data);
+  }
+
+  // Ручная кнопка "Проверить оплату"
+  const cryptoCheckNow = document.getElementById('cryptoCheckNow');
+  if (cryptoCheckNow) {
+    cryptoCheckNow.addEventListener('click', async function() {
+      if (!currentPayment) return;
+      const btn = this;
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = tr('crypto_checking', 'Проверяем…');
+      // Сбрасываем расписание, чтобы не гонять два запроса подряд
+      if (pollTimer) { clearTimeout(pollTimer); pollTimer = null; }
+      const found = await runPoll(true);
+      if (!found) {
+        setStatus('waiting', tr('crypto_status_not_yet', 'Транзакция ещё не найдена или не подтверждена в блокчейне. Продолжаем следить…'));
+        schedulePoll(POLL_INTERVAL_MS);
+      }
+      btn.disabled = false;
+      btn.textContent = origText;
+    });
   }
   
   // Маппинг услуг на изображения (поддержка массивов для нескольких изображений)
