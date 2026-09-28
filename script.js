@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Модалки
   const orderModal = document.getElementById('orderModal');
   const paymentSuccessModal = document.getElementById('paymentSuccessModal');
+  const cryptoSelectModal = document.getElementById('cryptoSelectModal');
+  const cryptoPayModal = document.getElementById('cryptoPayModal');
   const modalCloses = document.querySelectorAll('.modal .close');
-  
+
   // Блокировка скролла при открытой модалке
   function toggleBodyScroll(lock) {
     if (lock) {
@@ -14,22 +16,21 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.classList.remove('modal-open');
     }
   }
-  
+
   function openModal(modal) {
     modal.classList.add('active');
     toggleBodyScroll(true);
   }
-  
+
   function closeModal(modal) {
     modal.classList.remove('active');
     toggleBodyScroll(false);
-    
-    // Очищаем Turnstile при закрытии модального окна заказа
-    if (modal && modal.id === 'orderModal') {
-      resetTurnstile();
+
+    if (modal && modal.id === 'cryptoPayModal') {
+      stopPaymentPolling();
     }
   }
-  
+
   // Закрытие модалок
   modalCloses.forEach(closeBtn => {
     closeBtn.addEventListener('click', function() {
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (modal) closeModal(modal);
     });
   });
-  
+
   // Кнопка "Закрыть" в модалке успешной оплаты
   const closeSuccessButton = paymentSuccessModal?.querySelector('.btn-secondary');
   if (closeSuccessButton) {
@@ -45,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
       closeModal(paymentSuccessModal);
     });
   }
-  
+
   // Закрытие по клику на overlay
-  [orderModal, paymentSuccessModal].forEach(modal => {
+  [orderModal, paymentSuccessModal, cryptoSelectModal, cryptoPayModal].forEach(modal => {
     if (modal) {
       modal.addEventListener('click', function(e) {
         if (e.target === this) {
@@ -56,92 +57,21 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-  
+
   // Закрытие по ESC
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      [orderModal, paymentSuccessModal, physicalDetailsModal].forEach(modal => {
+      [orderModal, paymentSuccessModal, cryptoSelectModal, cryptoPayModal, physicalDetailsModal].forEach(modal => {
         if (modal && modal.classList.contains('active')) {
           closeModal(modal);
         }
       });
     }
   });
-  
-  // Cloudflare Turnstile интеграция
-  const TURNSTILE_SITE_KEY = '0x4AAAAAACKNrNi3V_612mZZ';
-  let turnstileWidgetId = null;
-  const turnstileContainer = document.getElementById('turnstile-container');
-  
-  // Инициализация Turnstile при открытии модального окна
-  function initTurnstile() {
-    if (!turnstileContainer) return;
-    
-    // Очищаем предыдущий виджет, если есть
-    if (turnstileWidgetId !== null && window.turnstile) {
-      try {
-        window.turnstile.remove(turnstileWidgetId);
-      } catch (e) {
-        console.warn('[Turnstile] Error removing widget:', e);
-      }
-      turnstileWidgetId = null;
-    }
-    
-    // Ждем загрузки Turnstile API
-    if (typeof window.turnstile === 'undefined') {
-      console.warn('[Turnstile] Turnstile API not loaded yet');
-      return;
-    }
-    
-    // Инициализируем новый виджет
-    try {
-      turnstileWidgetId = window.turnstile.render(turnstileContainer, {
-        sitekey: TURNSTILE_SITE_KEY,
-        theme: 'dark',
-        size: 'normal',
-        callback: function(token) {
-          console.log('[Turnstile] Verification successful');
-        },
-        'error-callback': function() {
-          console.error('[Turnstile] Verification failed');
-        }
-      });
-      console.log('[Turnstile] Widget initialized:', turnstileWidgetId);
-    } catch (e) {
-      console.error('[Turnstile] Error initializing widget:', e);
-    }
-  }
-  
-  // Очистка Turnstile при закрытии модального окна
-  function resetTurnstile() {
-    if (turnstileWidgetId !== null && window.turnstile) {
-      try {
-        window.turnstile.remove(turnstileWidgetId);
-        turnstileWidgetId = null;
-        console.log('[Turnstile] Widget removed');
-      } catch (e) {
-        console.warn('[Turnstile] Error removing widget:', e);
-      }
-    }
-    if (turnstileContainer) {
-      turnstileContainer.innerHTML = '';
-    }
-  }
-  
-  // Получение токена Turnstile
-  function getTurnstileToken() {
-    if (!window.turnstile || turnstileWidgetId === null) {
-      return null;
-    }
-    try {
-      return window.turnstile.getResponse(turnstileWidgetId);
-    } catch (e) {
-      console.error('[Turnstile] Error getting token:', e);
-      return null;
-    }
-  }
-  
+
+  // ================================
   // Кнопки "Оформить запрос" открывают модалку заказа
+  // ================================
   const orderButtons = document.querySelectorAll('.btn-order');
   orderButtons.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -154,145 +84,244 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modalServiceName) modalServiceName.textContent = serviceName;
         if (modalPrice) modalPrice.textContent = price;
         openModal(orderModal);
-        
-        // Инициализируем Turnstile после открытия модального окна
-        setTimeout(() => {
-          initTurnstile();
-        }, 100);
       }
     });
   });
-  
-  // Кнопки "Перейти к оплате" - создаем платеж через NowPayments
+
+  // ================================
+  // Крипто-оплата
+  // ================================
+  const CURRENCY_LABEL = {
+    btc:  { name: 'Bitcoin',  ticker: 'BTC' },
+    ltc:  { name: 'Litecoin', ticker: 'LTC' },
+    usdt: { name: 'Tether',   ticker: 'USDT (TRC-20)' },
+    eth:  { name: 'Ethereum', ticker: 'ETH' },
+    sol:  { name: 'Solana',   ticker: 'SOL' },
+  };
+  const ADDRESSES = {
+    btc:  '1AAYys3UZ5DXbwVxXVSYm2Ata4QKb3tBpY',
+    ltc:  'LWwunDJj4orQHcof3p3QRotaYAePy2LxKp',
+    usdt: 'TDiqxyUUhwPaAFLCFoF7AuLoUMgHpsTbpp',
+    eth:  '0x4da96c26e9c25b02761bd12273c6512df661af02',
+    sol:  'G3e5W5PaziGFjnJTSqHpqD19BNa18gizFtGbP9mrnTgj',
+  };
+  const QR_URI = {
+    btc:  (addr, amount) => `bitcoin:${addr}?amount=${amount}`,
+    ltc:  (addr, amount) => `litecoin:${addr}?amount=${amount}`,
+    eth:  (addr, amount) => `ethereum:${addr}?value=${amount}`,
+    usdt: (addr) => addr,
+    sol:  (addr, amount) => `solana:${addr}?amount=${amount}`,
+  };
+
+  let pollTimer = null;
+  let pollStartedAt = 0;
+  let currentPayment = null;
+
+  function stopPaymentPolling() {
+    if (pollTimer) {
+      clearTimeout(pollTimer);
+      pollTimer = null;
+    }
+    currentPayment = null;
+  }
+
+  function getServiceAndPrice() {
+    const serviceName = document.getElementById('modalServiceName')?.textContent?.trim() || '';
+    const priceText = document.getElementById('modalPrice')?.textContent?.trim() || '';
+    const priceMatch = priceText.replace(/[€\s]/g, '').trim().match(/[\d,]+\.?[\d]*|[\d]+/);
+    const priceValue = priceMatch ? parseFloat(priceMatch[0].replace(',', '.')) : 0;
+    return { serviceName, priceValue, priceText };
+  }
+
+  // Кнопки "Перейти к оплате" → открыть модалку выбора крипты
   const payButtons = document.querySelectorAll('.btn-pay');
   payButtons.forEach(btn => {
-    btn.addEventListener('click', async function(e) {
+    btn.addEventListener('click', function(e) {
       e.preventDefault();
       const modal = this.closest('.modal');
-      if (modal && modal.id === 'orderModal') {
-        const serviceName = document.getElementById('modalServiceName')?.textContent?.trim() || '';
-        const priceText = document.getElementById('modalPrice')?.textContent?.trim() || '';
-        
-        // Извлекаем число из цены (убираем символы валюты и пробелы)
-        const priceTextClean = priceText.replace(/[€\s]/g, '').trim();
-        const priceMatch = priceTextClean.match(/[\d,]+\.?[\d]*|[\d]+/);
-        const priceValue = priceMatch ? parseFloat(priceMatch[0].replace(',', '.')) : 0;
-        
-        if (serviceName && priceValue > 0) {
-          // Проверка на localhost - оплата работает только на деплое (Vercel)
-          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            alert('⚠️ Оплата работает только на деплое (Vercel).\n\nДля тестирования оплаты используйте развернутую версию сайта.');
-            return;
-          }
-          
-          // Проверка Turnstile токена
-          const turnstileToken = getTurnstileToken();
-          if (!turnstileToken) {
-            alert('⚠️ Пожалуйста, пройдите проверку безопасности перед оплатой.');
-            return;
-          }
-          
-          // Отключаем кнопку, чтобы предотвратить двойной клик
-          const originalText = this.textContent;
-          this.disabled = true;
-          this.textContent = 'Загрузка...';
-          
-          try {
-            // Отправляем запрос на создание платежа
-            console.log('[Payment] Creating payment request:', {
-              price_amount: priceValue,
-              price_currency: 'eur',
-              pay_currency: 'btc',
-              order_description: serviceName
-            });
-            
-            const response = await fetch('/api/create-payment', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                price_amount: priceValue,
-                price_currency: 'eur',
-                pay_currency: 'btc',
-                order_description: serviceName,
-                turnstile_token: turnstileToken
-              })
-            });
-
-            // Читаем тело ответа один раз
-            const responseText = await response.text();
-            
-            if (!response.ok) {
-              let errorMessage = 'Ошибка при создании платежа';
-              let errorDetails = '';
-              
-              // Пытаемся распарсить JSON ошибку
-              try {
-                const errorData = JSON.parse(responseText);
-                errorMessage = errorData.error || errorMessage;
-                errorDetails = errorData.details || errorData.message || '';
-                
-                console.error('[Payment] API error response:', errorData);
-              } catch (parseError) {
-                // Если не JSON, используем текст как есть
-                errorMessage = responseText || response.statusText || errorMessage;
-                errorDetails = responseText;
-                console.error('[Payment] Failed to parse error response as JSON:', parseError);
-                console.error('[Payment] Response text:', responseText);
-              }
-              
-              // Формируем сообщение об ошибке
-              let alertMessage = errorMessage;
-              if (errorDetails && errorDetails !== errorMessage) {
-                // Добавляем детали, если они есть и отличаются от основного сообщения
-                const truncatedDetails = errorDetails.length > 200 ? errorDetails.substring(0, 200) + '...' : errorDetails;
-                alertMessage += '\n\nДетали: ' + truncatedDetails;
-              }
-              
-              throw new Error(alertMessage);
-            }
-
-            // Парсим успешный ответ
-            let data;
-            try {
-              data = JSON.parse(responseText);
-            } catch (parseError) {
-              console.error('[Payment] Failed to parse success response as JSON:', parseError);
-              console.error('[Payment] Response text:', responseText);
-              throw new Error('Неверный формат ответа от сервера');
-            }
-            console.log('[Payment] Payment created successfully:', data);
-            
-            if (data.invoice_url) {
-              // Закрываем модалку перед переходом на страницу оплаты
-              if (modal) {
-                closeModal(modal);
-              }
-              
-              // Перенаправляем на страницу оплаты
-              window.location.href = data.invoice_url;
-            } else {
-              throw new Error('Invoice URL not received from server');
-            }
-          } catch (error) {
-            console.error('[Payment] Ошибка при создании платежа:', error);
-            
-            // Показываем детальное сообщение об ошибке
-            const errorMessage = error.message || 'Неизвестная ошибка';
-            alert(errorMessage);
-            
-            // Восстанавливаем кнопку
-            this.disabled = false;
-            this.textContent = originalText;
-          }
-        } else {
-          console.warn('[Payment] Не удалось извлечь данные платежа:', { serviceName, priceValue });
-          alert('Ошибка: не удалось определить услугу или цену.');
-        }
+      if (!modal || modal.id !== 'orderModal') return;
+      const { serviceName, priceValue } = getServiceAndPrice();
+      if (!serviceName || !(priceValue > 0)) {
+        alert('Ошибка: не удалось определить услугу или цену.');
+        return;
       }
+      if (modal) closeModal(modal);
+      if (cryptoSelectModal) openModal(cryptoSelectModal);
     });
   });
+
+  // Клики по вариантам крипты
+  const cryptoOptions = document.querySelectorAll('.crypto-option');
+  cryptoOptions.forEach(opt => {
+    opt.addEventListener('click', async function() {
+      const currency = this.getAttribute('data-currency');
+      if (!currency || !ADDRESSES[currency]) return;
+      const { serviceName, priceValue, priceText } = getServiceAndPrice();
+      if (!serviceName || !(priceValue > 0)) return;
+
+      if (cryptoSelectModal) closeModal(cryptoSelectModal);
+      await openCryptoPayModal(currency, serviceName, priceValue, priceText);
+    });
+  });
+
+  // Кнопка "Назад" в модалке оплаты
+  const cryptoPayBack = document.getElementById('cryptoPayBack');
+  if (cryptoPayBack) {
+    cryptoPayBack.addEventListener('click', function() {
+      if (cryptoPayModal) closeModal(cryptoPayModal);
+      if (cryptoSelectModal) openModal(cryptoSelectModal);
+    });
+  }
+
+  // Копирование
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.crypto-copy-btn');
+    if (!btn) return;
+    const targetId = btn.getAttribute('data-copy-target');
+    const el = targetId ? document.getElementById(targetId) : null;
+    const text = el ? el.textContent.trim() : '';
+    if (!text) return;
+    const done = () => {
+      const orig = btn.textContent;
+      btn.classList.add('copied');
+      btn.textContent = '✓';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 1200);
+    };
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(() => {
+        fallbackCopy(text);
+        done();
+      });
+    } else {
+      fallbackCopy(text);
+      done();
+    }
+  });
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (_) {}
+    document.body.removeChild(ta);
+  }
+
+  async function openCryptoPayModal(currency, serviceName, priceEur, priceText) {
+    const address = ADDRESSES[currency];
+    const label = CURRENCY_LABEL[currency];
+
+    const titleEl = document.getElementById('cryptoPayTitle');
+    const serviceEl = document.getElementById('cryptoPayService');
+    const priceEl = document.getElementById('cryptoPayPrice');
+    const amountEl = document.getElementById('cryptoPayAmount');
+    const addressEl = document.getElementById('cryptoPayAddress');
+    const qrEl = document.getElementById('cryptoPayQr');
+    const statusEl = document.getElementById('cryptoPayStatus');
+
+    if (titleEl) titleEl.textContent = `Оплата в ${label.name} (${label.ticker})`;
+    if (serviceEl) serviceEl.textContent = serviceName;
+    if (priceEl) priceEl.textContent = priceText || `${priceEur} €`;
+    if (addressEl) addressEl.textContent = address;
+    if (amountEl) amountEl.textContent = '…';
+    if (qrEl) qrEl.innerHTML = '';
+    if (statusEl) {
+      statusEl.classList.remove('confirmed', 'error');
+      const t = statusEl.querySelector('.crypto-pay-status-text');
+      if (t) t.textContent = 'Загружаем курс…';
+    }
+
+    if (cryptoPayModal) openModal(cryptoPayModal);
+
+    // Получаем котировку
+    let quote;
+    try {
+      const r = await fetch(`/api/crypto-quote?currency=${currency}&eur=${encodeURIComponent(priceEur)}`);
+      if (!r.ok) throw new Error('quote_failed');
+      quote = await r.json();
+    } catch (err) {
+      console.error('[Crypto] quote error:', err);
+      if (statusEl) {
+        statusEl.classList.add('error');
+        const t = statusEl.querySelector('.crypto-pay-status-text');
+        if (t) t.textContent = 'Не удалось получить курс. Попробуйте позже или свяжитесь с продавцом.';
+      }
+      return;
+    }
+
+    const amountStr = Number(quote.amount).toFixed(quote.decimals);
+    if (amountEl) amountEl.textContent = `${amountStr} ${label.ticker.split(' ')[0]}`;
+
+    // QR
+    if (qrEl) {
+      const uriBuilder = QR_URI[currency];
+      const uri = uriBuilder ? uriBuilder(address, amountStr) : address;
+      const src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=${encodeURIComponent(uri)}`;
+      qrEl.innerHTML = `<img alt="QR" width="180" height="180" src="${src}">`;
+    }
+
+    if (statusEl) {
+      const t = statusEl.querySelector('.crypto-pay-status-text');
+      if (t) t.textContent = 'Ожидание подтверждения в блокчейне…';
+    }
+
+    currentPayment = {
+      currency,
+      address,
+      amount: Number(quote.amount),
+      since: quote.createdAt || Math.floor(Date.now() / 1000),
+    };
+    pollStartedAt = Date.now();
+    schedulePoll(3000);
+  }
+
+  function schedulePoll(delayMs) {
+    if (pollTimer) clearTimeout(pollTimer);
+    pollTimer = setTimeout(runPoll, delayMs);
+  }
+
+  async function runPoll() {
+    if (!currentPayment) return;
+    const payment = currentPayment;
+    try {
+      const r = await fetch('/api/check-payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          currency: payment.currency,
+          expectedAmount: payment.amount,
+          since: payment.since,
+        }),
+      });
+      const data = await r.json().catch(() => ({}));
+      if (data && data.confirmed) {
+        onPaymentConfirmed(data);
+        return;
+      }
+    } catch (err) {
+      console.warn('[Crypto] poll error:', err);
+    }
+    // Backoff: первые 3 минуты каждые 15 с, дальше — каждые 30 с
+    const elapsed = Date.now() - pollStartedAt;
+    const nextDelay = elapsed < 3 * 60 * 1000 ? 15000 : 30000;
+    schedulePoll(nextDelay);
+  }
+
+  function onPaymentConfirmed(data) {
+    stopPaymentPolling();
+    if (cryptoPayModal) closeModal(cryptoPayModal);
+    if (paymentSuccessModal) {
+      paymentSuccessModal.style.display = '';
+      paymentSuccessModal.style.opacity = '';
+      openModal(paymentSuccessModal);
+    }
+    console.log('[Crypto] payment confirmed:', data);
+  }
   
   // Маппинг услуг на изображения (поддержка массивов для нескольких изображений)
   const serviceImageMap = {

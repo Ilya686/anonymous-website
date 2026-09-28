@@ -30,7 +30,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" nomodule="">
     </script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -645,24 +644,100 @@
           </h3>
           <ul>
             <li data-i18n="modal_step1">
-              После оплаты отправьте TXID или скриншот платежа исполнителю
+              Выберите криптовалюту и оплатите на указанный адрес
             </li>
             <li data-i18n="modal_step2">
-              Укажите название услуги, которую вы выбрали
+              Дождитесь подтверждения транзакции в блокчейне
             </li>
             <li data-i18n="modal_step3">
-              Предоставьте желаемые данные для документа
+              После подтверждения свяжитесь с продавцом для получения услуги
             </li>
           </ul>
         </div>
         <div class="modal-actions">
-          <div id="turnstile-container" style="margin-bottom: 16px; display: flex; justify-content: center;"></div>
           <button class="btn btn-pay" data-i18n="btn_pay">
             Перейти к оплате
           </button>
           <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="btn btn-contact" style="text-decoration:none;display:inline-block" data-i18n="btn_contact">
             Связаться с исполнителем
           </a>
+        </div>
+      </div>
+    </div>
+    <div id="cryptoSelectModal" class="modal">
+      <div class="modal-content crypto-select-modal">
+        <span class="close">×</span>
+        <h2 data-i18n="crypto_select_title">Выберите способ оплаты</h2>
+        <p class="crypto-select-subtitle" data-i18n="crypto_select_subtitle">
+          Оплата подтверждается автоматически в блокчейне
+        </p>
+        <div class="crypto-options">
+          <button type="button" class="crypto-option" data-currency="btc">
+            <span class="crypto-icon">💸</span>
+            <span class="crypto-name">Bitcoin</span>
+            <span class="crypto-ticker">BTC</span>
+          </button>
+          <button type="button" class="crypto-option" data-currency="ltc">
+            <span class="crypto-icon">🪙</span>
+            <span class="crypto-name">Litecoin</span>
+            <span class="crypto-ticker">LTC</span>
+          </button>
+          <button type="button" class="crypto-option" data-currency="usdt">
+            <span class="crypto-icon">💲</span>
+            <span class="crypto-name">Tether</span>
+            <span class="crypto-ticker">USDT · TRC-20</span>
+          </button>
+          <button type="button" class="crypto-option" data-currency="eth">
+            <span class="crypto-icon">🔹</span>
+            <span class="crypto-name">Ethereum</span>
+            <span class="crypto-ticker">ETH · ERC-20</span>
+          </button>
+          <button type="button" class="crypto-option" data-currency="sol">
+            <span class="crypto-icon">🪙</span>
+            <span class="crypto-name">Solana</span>
+            <span class="crypto-ticker">SOL</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="cryptoPayModal" class="modal">
+      <div class="modal-content crypto-pay-modal">
+        <span class="close">×</span>
+        <button type="button" class="crypto-pay-back" id="cryptoPayBack" aria-label="Назад">‹ <span data-i18n="crypto_back">Назад</span></button>
+        <h2 id="cryptoPayTitle" data-i18n="crypto_pay_title">Оплата криптовалютой</h2>
+        <div class="crypto-pay-summary">
+          <div class="crypto-pay-row">
+            <span class="crypto-pay-label" data-i18n="crypto_pay_service">Услуга:</span>
+            <span class="crypto-pay-value" id="cryptoPayService">—</span>
+          </div>
+          <div class="crypto-pay-row">
+            <span class="crypto-pay-label" data-i18n="crypto_pay_price">К оплате:</span>
+            <span class="crypto-pay-value" id="cryptoPayPrice">—</span>
+          </div>
+        </div>
+        <div class="crypto-pay-amount">
+          <div class="crypto-pay-amount-label" data-i18n="crypto_pay_send">Отправьте ровно:</div>
+          <div class="crypto-pay-amount-value" id="cryptoPayAmount">—</div>
+          <button type="button" class="crypto-copy-btn" data-copy-target="cryptoPayAmount" aria-label="Скопировать сумму">
+            <span data-i18n="crypto_copy">Копировать</span>
+          </button>
+        </div>
+        <div class="crypto-pay-address">
+          <div class="crypto-pay-address-label" data-i18n="crypto_pay_address">На адрес:</div>
+          <div class="crypto-pay-address-value" id="cryptoPayAddress">—</div>
+          <button type="button" class="crypto-copy-btn" data-copy-target="cryptoPayAddress" aria-label="Скопировать адрес">
+            <span data-i18n="crypto_copy">Копировать</span>
+          </button>
+        </div>
+        <div class="crypto-pay-qr" id="cryptoPayQr"></div>
+        <div class="crypto-pay-status" id="cryptoPayStatus">
+          <div class="crypto-pay-spinner"></div>
+          <div class="crypto-pay-status-text" data-i18n="crypto_status_waiting">
+            Ожидание подтверждения в блокчейне…
+          </div>
+        </div>
+        <div class="crypto-pay-note" data-i18n="crypto_pay_note">
+          Не закрывайте это окно. Как только транзакция получит подтверждение, статус обновится автоматически.
         </div>
       </div>
     </div>
@@ -673,11 +748,11 @@
         <div class="payment-success-icon">
           ✓
         </div>
-        <h2>
-          Спасибо за заказ
+        <h2 data-i18n="payment_success_title">
+          Заказ оплачен и подтверждён
         </h2>
-        <p class="payment-success-text">
-          Для дальнейшей работы, свяжитесь с продавцом
+        <p class="payment-success-text" data-i18n="payment_success_text">
+          Свяжитесь с продавцом для получения услуги
         </p>
         <div class="modal-actions">
           <a href="https://t.me/Anonymous_L1nk" target="_blank" rel="noopener noreferrer" class="btn btn-contact" style="text-decoration:none;display:inline-block">          Связаться с продавцом
@@ -735,7 +810,7 @@
             </div>
             <div class="faq-answer">
               <p data-i18n="faq_answer2">
-                Оплата производится через Nowpayments. После оплаты необходимо отправить TXID или скриншот платежа исполнителю.
+                Оплата производится в криптовалюте (BTC, LTC, USDT TRC-20, ETH ERC-20, SOL). После отправки транзакции статус подтверждения автоматически отслеживается в блокчейне.
               </p>
             </div>
           </div>
